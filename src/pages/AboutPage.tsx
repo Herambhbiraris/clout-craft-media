@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck, Sparkles, HeartHandshake, Zap, Target, ArrowRight, Award, Users, MapPin, CheckCircle2 } from 'lucide-react';
+import studioImg from '../assets/founder_3d_studio.jpg';
 import { useRouter } from '../context/RouterContext';
 
 interface AboutPageProps {
@@ -84,7 +85,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenAudit }) => {
 
             {/* Founder Spotlight Card */}
             <div 
-              className="lg:col-span-5 bg-panel-dark text-white p-6 sm:p-8 rounded-2xl border-2 border-line shadow-brutal flex flex-col justify-between"
+              className="lg:col-span-5 bg-panel-dark text-white p-6 sm:p-8 rounded-2xl border-2 border-line shadow-brutal flex flex-col justify-between group"
               style={{ backgroundColor: '#241447', color: '#FFFFFF' }}
             >
               <div>
@@ -95,16 +96,35 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenAudit }) => {
                   <span className="w-2.5 h-2.5 rounded-full bg-accent-mint animate-ping" />
                 </div>
 
-                <div className="w-16 h-16 rounded-2xl bg-panel-1 text-panel-dark flex items-center justify-center font-display font-black text-2xl mb-4 border-2 border-line shadow-brutal-white">
-                  CC
+                {/* 3D Founder Workstation Studio Showcase */}
+                <div className="relative rounded-xl overflow-hidden border-2 border-white/20 mb-5 bg-black/40 shadow-inner">
+                  <img 
+                    src={studioImg} 
+                    alt="CloutCraft Founder Growth Command Center" 
+                    className="w-full h-48 sm:h-52 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute bottom-2 left-2 right-2 bg-panel-dark/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-white/20 flex items-center justify-between text-[10px] font-mono">
+                    <span className="text-accent-mint font-bold flex items-center gap-1">
+                      <Sparkles className="w-3 h-3 text-amber-300" />
+                      Growth Command Center
+                    </span>
+                    <span className="text-purple-200 font-bold">Nashik HQ</span>
+                  </div>
                 </div>
 
-                <h3 className="text-2xl font-black font-display text-white mb-1">
-                  founders name
-                </h3>
-                <p className="font-mono text-xs text-purple-200 mb-4 font-bold">
-                  Founder &amp; Chief Growth Strategist
-                </p>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 rounded-xl bg-panel-1 text-panel-dark flex items-center justify-center font-display font-black text-xl border-2 border-line shadow-brutal-white shrink-0">
+                    HB
+                  </div>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-black font-display text-white">
+                      Herambh Biraris
+                    </h3>
+                    <p className="font-mono text-xs text-purple-200 font-bold">
+                      Founder &amp; Chief Growth Strategist
+                    </p>
+                  </div>
+                </div>
 
                 <p className="text-xs sm:text-sm text-white/95 leading-relaxed mb-6 italic font-medium">
                   "When a founder entrusts us with their brand, they aren't buying billable hours — they are buying speed, market positioning, and revenue. My promise is simple: you work directly with the person who actually cares about the outcome."

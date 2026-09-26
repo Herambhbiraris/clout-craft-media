@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles, ArrowRight, TrendingUp, Play, Flame, Zap, CheckCircle2, ShieldCheck, Users } from 'lucide-react';
+import heroEngineImg from '../assets/hero_3d_engine.jpg';
 
 interface HeroProps {
   onOpenAudit: () => void;
@@ -188,21 +189,43 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
           {/* Right Bento Column: Verified Growth Metrics */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             
-            {/* Top Stat Block */}
-            <div className="brutal-card brutal-card-dark p-6 bg-panel-dark text-white" style={{ backgroundColor: '#241447', color: '#FFFFFF' }}>
-              <div className="flex items-center justify-between mb-3">
-                <span className="font-mono text-xs uppercase tracking-widest text-purple-200 font-bold">
-                  AGGREGATE IMPACT
+            {/* 3D Viral Engine Visual & Top Stat Block */}
+            <div className="brutal-card brutal-card-dark p-5 bg-panel-dark text-white relative overflow-hidden group" style={{ backgroundColor: '#241447', color: '#FFFFFF' }}>
+              <div className="flex items-center justify-between mb-3 relative z-10">
+                <span className="font-mono text-xs uppercase tracking-widest text-purple-200 font-bold flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-accent-emerald animate-ping" />
+                  VIRAL GROWTH ENGINE // 3D CORE
                 </span>
                 <span className="bg-accent-emerald text-white font-mono text-xs px-2.5 py-0.5 rounded-full font-black border border-emerald-400">
                   VERIFIED
                 </span>
               </div>
-              <div className="text-4xl sm:text-5xl font-black font-display tracking-tight text-white mb-2">
-                28.4M+
+
+              {/* 3D Engine Image Showcase */}
+              <div className="relative rounded-xl overflow-hidden border-2 border-white/20 mb-4 bg-black/40 group-hover:border-accent-mint/60 transition-all duration-300 shadow-inner">
+                <img 
+                  src={heroEngineImg} 
+                  alt="CloutCraft 3D Viral Growth Engine" 
+                  className="w-full h-44 sm:h-52 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  loading="eager"
+                />
+                <div className="absolute bottom-2 left-2 right-2 bg-panel-dark/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 flex items-center justify-between text-[11px] font-mono">
+                  <span className="text-accent-mint font-bold flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-amber-300" />
+                    Autonomous Creative Loop
+                  </span>
+                  <span className="text-purple-200 font-bold">+1320% Velocity</span>
+                </div>
               </div>
-              <p className="text-sm text-purple-100 font-medium leading-relaxed">
-                Organic video impressions and paid reach generated across our client partner ecosystem.
+
+              <div className="flex items-baseline justify-between mb-1">
+                <div className="text-3xl sm:text-4xl font-black font-display tracking-tight text-white">
+                  28.4M+
+                </div>
+                <span className="font-mono text-xs text-purple-200 font-bold">AGGREGATE REACH</span>
+              </div>
+              <p className="text-xs text-purple-100 font-medium leading-relaxed">
+                Organic video impressions and performance ad reach generated across our client partner ecosystem.
               </p>
             </div>
 

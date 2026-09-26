@@ -4,6 +4,9 @@ import {
   CheckCircle2, ArrowRight, ShieldCheck, Zap, Layers, ChevronRight 
 } from 'lucide-react';
 import { SERVICES_DATA } from '../data/mockData';
+import retentionImg from '../assets/retention_3d_clapper.jpg';
+import funnelImg from '../assets/performance_3d_funnel.jpg';
+import vaultImg from '../assets/monetization_3d_vault.jpg';
 
 interface ServicesPageProps {
   onOpenAudit: (serviceTitle: string) => void;
@@ -58,6 +61,21 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenAudit }) => {
 
   const activeService = SERVICES_DATA.find(s => s.id === selectedServiceId) || SERVICES_DATA[0];
   const activePlaybook = detailedPlaybooks[activeService.id];
+
+  const getActiveIllustration = (id: string) => {
+    switch (id) {
+      case 'video-production':
+      case 'social-media':
+        return { img: retentionImg, label: '3D RETENTION ENGINE' };
+      case 'paid-ads':
+      case 'cro':
+        return { img: funnelImg, label: '3D ROAS CONVERSION FUNNEL' };
+      case 'brand-strategy':
+      case 'influencer-marketing':
+      default:
+        return { img: vaultImg, label: '3D MONETIZATION VAULT' };
+    }
+  };
 
   return (
     <div className="py-12 sm:py-16">
@@ -161,9 +179,25 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenAudit }) => {
                 <span className="font-mono text-xs font-bold uppercase text-ink">
                   SPRINT SPECIFICATIONS
                 </span>
-                <span className="text-xs font-mono bg-paper px-2 py-0.5 rounded border border-line">
+                <span className="text-xs font-mono bg-paper px-2 py-0.5 rounded border border-line font-bold">
                   FOUNDER SUPERVISED
                 </span>
+              </div>
+
+              {/* 3D Craft Blueprint Object */}
+              <div className="relative rounded-xl overflow-hidden border-2 border-line bg-panel-dark shadow-brutal-sm group">
+                <img 
+                  src={getActiveIllustration(activeService.id).img} 
+                  alt={activeService.title} 
+                  className="w-full h-48 sm:h-52 object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute bottom-2 left-2 right-2 bg-panel-dark/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-white/20 flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-accent-mint font-bold flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-amber-300" />
+                    {getActiveIllustration(activeService.id).label}
+                  </span>
+                  <span className="text-purple-200 font-bold">PROPRIETARY ENGINE</span>
+                </div>
               </div>
 
               {/* Who it's for */}

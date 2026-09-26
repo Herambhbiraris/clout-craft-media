@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Calculator, ArrowRight, MessageCircle, Sparkles, TrendingUp, DollarSign, Calendar, Layers, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import funnelImg from '../assets/performance_3d_funnel.jpg';
 
 interface CalculatorPageProps {
   onOpenAudit: (summary: string) => void;
@@ -218,13 +219,29 @@ export const CalculatorPage: React.FC<CalculatorPageProps> = ({ onOpenAudit }) =
             style={{ backgroundColor: '#241447', color: '#FFFFFF' }}
           >
             <div>
-              <div className="flex items-center justify-between pb-4 border-b border-white/20 mb-6">
+              <div className="flex items-center justify-between pb-4 border-b border-white/20 mb-4">
                 <span className="font-mono text-xs font-bold text-purple-200 uppercase tracking-widest">
                   SIMULATION RESULTS
                 </span>
                 <span className="bg-accent-mint text-ink font-mono text-xs px-2.5 py-0.5 rounded-full font-black">
                   PROJECTED
                 </span>
+              </div>
+
+              {/* 3D Conversion Funnel Visual */}
+              <div className="relative rounded-xl overflow-hidden border-2 border-white/20 mb-4 bg-black/40 group">
+                <img 
+                  src={funnelImg} 
+                  alt="3D Performance Funnel Simulator" 
+                  className="w-full h-36 sm:h-40 object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute bottom-2 left-2 right-2 bg-panel-dark/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/20 flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-accent-mint font-bold flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-amber-300" />
+                    3D Funnel Calibration
+                  </span>
+                  <span className="text-purple-200 font-bold">Dynamic ROAS Simulator</span>
+                </div>
               </div>
 
               {/* ROAS Highlight */}
