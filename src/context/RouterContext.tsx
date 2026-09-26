@@ -15,13 +15,13 @@ const RouterContext = createContext<RouterContextType>({
 export const useRouter = () => useContext(RouterContext);
 
 export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Extract initial route from URL hash or pathname
+  // Extract initial route from URL hash (compatible with subfolder repos like GitHub Pages)
   const getPath = (): string => {
     if (window.location.hash.startsWith('#/')) {
-      return window.location.hash.replace('#', '') || '/';
+      const route = window.location.hash.replace('#', '');
+      return route || '/';
     }
-    const path = window.location.pathname;
-    return path && path !== '' ? path : '/';
+    return '/';
   };
 
   const [currentPath, setCurrentPath] = useState<string>(getPath());
