@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Menu, X, ArrowUpRight, Phone, MessageCircle, Maximize2, Minimize2 } from 'lucide-react';
 import { useRouter } from '../context/RouterContext';
+import logoImg from '../assets/logo.png';
 
 interface NavbarProps {
   onOpenAudit: () => void;
@@ -82,7 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
           >
             <div className="bg-panel-dark px-3 py-1.5 rounded-lg border-2 border-line shadow-brutal-sm group-hover:-rotate-2 transition-transform duration-150">
               <img 
-                src="/logo.png" 
+                src={logoImg} 
                 alt="CloutCraft Media" 
                 className="h-6 sm:h-7 w-auto object-contain filter brightness-110" 
               />

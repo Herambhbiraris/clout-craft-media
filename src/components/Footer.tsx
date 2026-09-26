@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, Phone, Mail, Instagram, Copy, Check, ArrowUpRight, MessageCircle, MapPin } from 'lucide-react';
 import { useRouter } from '../context/RouterContext';
+import logoImg from '../assets/logo.png';
 
 interface FooterProps {
   onOpenAudit: () => void;
@@ -70,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
             <div className="flex items-center gap-3">
               <div className="bg-panel-dark px-3 py-1.5 rounded-lg border-2 border-line shadow-brutal-sm">
                 <img 
-                  src="/logo.png" 
+                  src={logoImg} 
                   alt="CloutCraft Media" 
                   className="h-6 w-auto object-contain filter brightness-110" 
                 />
