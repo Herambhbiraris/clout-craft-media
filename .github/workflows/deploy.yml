@@ -38,6 +38,10 @@ jobs:
           npm run build
           touch dist/.nojekyll
           cp dist/index.html dist/404.html
+          mkdir -p dist/docs
+          cp -r dist/assets dist/docs/
+          cp dist/index.html dist/docs/index.html
+          cp dist/index.html dist/docs/404.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

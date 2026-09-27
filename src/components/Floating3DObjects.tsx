@@ -19,11 +19,22 @@ export const HeroStudioRightStage: React.FC = () => {
       <div className="absolute top-[42%] right-[130px] sm:right-[170px] md:right-[210px] w-[500px] sm:w-[750px] md:w-[920px] lg:w-[1100px] h-[260px] sm:h-[340px] md:h-[420px] pointer-events-none -translate-y-1/2 z-0 origin-right">
         <svg className="w-full h-full overflow-visible" viewBox="0 0 1000 400" fill="none">
           <defs>
+            {/* Native SVG Blur Filters for 100% Cross-Browser Rendering */}
+            <filter id="beamWideBlur" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="12" />
+            </filter>
+            <filter id="coreRayBlur" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="5" />
+            </filter>
+            <filter id="puddleGlowBlur" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="18" />
+            </filter>
+
             {/* Broad Volumetric Light Shaft (pointing Left) */}
             <linearGradient id="volBeamLeft" x1="1000" y1="200" x2="0" y2="200" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.95" />
-              <stop offset="10%" stopColor="#FEF08A" stopOpacity="0.7" />
-              <stop offset="30%" stopColor="#FDE047" stopOpacity="0.45" />
+              <stop offset="10%" stopColor="#FEF08A" stopOpacity="0.75" />
+              <stop offset="30%" stopColor="#FDE047" stopOpacity="0.5" />
               <stop offset="65%" stopColor="#C4B5FD" stopOpacity="0.25" />
               <stop offset="100%" stopColor="#5B2FB8" stopOpacity="0" />
             </linearGradient>
@@ -31,27 +42,27 @@ export const HeroStudioRightStage: React.FC = () => {
             {/* Core Intense Center Laser Ray */}
             <linearGradient id="coreRayLeft" x1="1000" y1="200" x2="150" y2="200" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
-              <stop offset="20%" stopColor="#FEF08A" stopOpacity="0.8" />
-              <stop offset="55%" stopColor="#E9D5FF" stopOpacity="0.3" />
+              <stop offset="20%" stopColor="#FEF08A" stopOpacity="0.85" />
+              <stop offset="55%" stopColor="#E9D5FF" stopOpacity="0.35" />
               <stop offset="100%" stopColor="#5B2FB8" stopOpacity="0" />
             </linearGradient>
 
             {/* Stage Illumination Puddle where light hits the left side */}
             <radialGradient id="stageGlowLeft" cx="15%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#FEF08A" stopOpacity="0.4" />
-              <stop offset="50%" stopColor="#A78BFA" stopOpacity="0.2" />
+              <stop offset="0%" stopColor="#FEF08A" stopOpacity="0.45" />
+              <stop offset="50%" stopColor="#A78BFA" stopOpacity="0.25" />
               <stop offset="100%" stopColor="#5B2FB8" stopOpacity="0" />
             </radialGradient>
           </defs>
 
           {/* Main Volumetric Cone Spreading Leftward onto the headline */}
-          <polygon points="1000,200 0,60 0,340" fill="url(#volBeamLeft)" style={{ filter: 'blur(14px)' }} />
+          <polygon points="1000,200 0,50 0,350" fill="url(#volBeamLeft)" filter="url(#beamWideBlur)" />
 
           {/* Concentrated Center Beam */}
-          <polygon points="1000,200 150,130 150,270" fill="url(#coreRayLeft)" style={{ filter: 'blur(7px)' }} />
+          <polygon points="1000,200 150,120 150,280" fill="url(#coreRayLeft)" filter="url(#coreRayBlur)" />
 
           {/* Left Puddle Glow */}
-          <ellipse cx="120" cy="200" rx="160" ry="120" fill="url(#stageGlowLeft)" style={{ filter: 'blur(20px)' }} />
+          <ellipse cx="120" cy="200" rx="160" ry="120" fill="url(#stageGlowLeft)" filter="url(#puddleGlowBlur)" />
 
           {/* Floating Atmospheric Sparkles in the light beam */}
           <circle cx="850" cy="190" r="2.5" fill="#FFFFFF" className="animate-ping" opacity="0.9" />
