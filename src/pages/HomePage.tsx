@@ -7,9 +7,6 @@ import {
   ShieldCheck, CheckCircle2, Film, Target, Star, ChevronRight, Zap, Users
 } from 'lucide-react';
 import { CASE_STUDIES } from '../data/mockData';
-import retentionImg from '../assets/retention_3d_clapper.jpg';
-import funnelImg from '../assets/performance_3d_funnel.jpg';
-import vaultImg from '../assets/monetization_3d_vault.jpg';
 
 interface HomePageProps {
   onOpenAudit: (context?: string) => void;
@@ -72,16 +69,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAudit }) => {
                 </div>
               </div>
 
-              {/* 3D Clapper Illustration */}
-              <div className="relative rounded-xl overflow-hidden border-2 border-line mb-4 bg-panel-dark/10 group-hover:shadow-brutal-sm transition-all">
-                <img 
-                  src={retentionImg} 
-                  alt="Viral Video Retention Engine" 
-                  className="w-full h-40 sm:h-44 object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-2 right-2 bg-panel-dark/85 backdrop-blur-sm text-accent-mint text-[10px] font-mono font-bold px-2 py-0.5 rounded border border-white/20">
-                  0:03 HOOK
-                </div>
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                <span className="text-[10px] font-mono font-bold bg-panel-1 text-ink px-2 py-0.5 rounded border border-line">
+                  3s Hook Lab
+                </span>
+                <span className="text-[10px] font-mono font-bold bg-panel-1 text-ink px-2 py-0.5 rounded border border-line">
+                  2.4s Pacing Shifts
+                </span>
+                <span className="text-[10px] font-mono font-bold bg-panel-1 text-ink px-2 py-0.5 rounded border border-line">
+                  Reels &amp; Shorts
+                </span>
               </div>
 
               <h3 className="font-display font-bold text-xl text-ink mb-1 group-hover:text-brand transition-colors">
@@ -115,16 +112,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAudit }) => {
                 </div>
               </div>
 
-              {/* 3D Funnel Illustration */}
-              <div className="relative rounded-xl overflow-hidden border-2 border-line mb-4 bg-panel-dark/10 group-hover:shadow-brutal-sm transition-all">
-                <img 
-                  src={funnelImg} 
-                  alt="Performance Ads ROAS Funnel" 
-                  className="w-full h-40 sm:h-44 object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-2 right-2 bg-panel-dark/85 backdrop-blur-sm text-amber-300 text-[10px] font-mono font-bold px-2 py-0.5 rounded border border-white/20">
-                  4.4x MULTIPLIER
-                </div>
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                <span className="text-[10px] font-mono font-bold bg-white text-ink px-2 py-0.5 rounded border border-line">
+                  20+ Hooks / Wk
+                </span>
+                <span className="text-[10px] font-mono font-bold bg-white text-ink px-2 py-0.5 rounded border border-line">
+                  Meta &amp; Google Ads
+                </span>
+                <span className="text-[10px] font-mono font-bold bg-white text-ink px-2 py-0.5 rounded border border-line">
+                  Blended ROAS
+                </span>
               </div>
 
               <h3 className="font-display font-bold text-xl text-ink mb-1 group-hover:text-brand transition-colors">
@@ -159,16 +156,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAudit }) => {
                 </div>
               </div>
 
-              {/* 3D Vault Illustration */}
-              <div className="relative rounded-xl overflow-hidden border-2 border-white/20 mb-4 bg-black/40 group-hover:border-accent-mint/60 transition-all">
-                <img 
-                  src={vaultImg} 
-                  alt="Creator Monetization Vault" 
-                  className="w-full h-40 sm:h-44 object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-2 right-2 bg-panel-dark/85 backdrop-blur-sm text-purple-200 text-[10px] font-mono font-bold px-2 py-0.5 rounded border border-white/20">
-                  DEALS VAULT
-                </div>
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                <span className="text-[10px] font-mono font-bold bg-white/10 text-white px-2 py-0.5 rounded border border-white/20">
+                  5-6 Fig Deals
+                </span>
+                <span className="text-[10px] font-mono font-bold bg-white/10 text-white px-2 py-0.5 rounded border border-white/20">
+                  Contract Desk
+                </span>
+                <span className="text-[10px] font-mono font-bold bg-white/10 text-white px-2 py-0.5 rounded border border-white/20">
+                  Equity Build
+                </span>
               </div>
 
               <h3 className="font-display font-bold text-xl text-white mb-1 group-hover:text-purple-200 transition-colors">

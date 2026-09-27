@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles, ArrowRight, TrendingUp, Play, Flame, Zap, CheckCircle2, ShieldCheck, Users } from 'lucide-react';
-import heroEngineImg from '../assets/hero_3d_engine.jpg';
+import { HeroStudioRightStage } from './Floating3DObjects';
 
 interface HeroProps {
   onOpenAudit: () => void;
@@ -43,61 +43,80 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
 
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         
-        {/* Top Badges */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
-          <div className="brutal-tag bg-panel-1 border-line text-ink">
-            <span className="w-2.5 h-2.5 rounded-full bg-accent-emerald animate-ping" />
-            <span className="font-bold">ACCEPTING 2 NEW CLIENTS FOR Q2</span>
-          </div>
+        {/* Two-Column Split Hero: Left Text & Right 3D Studio Stage */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-12 relative">
+          
+          {/* LEFT COLUMN: All Written Text, Badges, CTAs, and Guarantees */}
+          <div className="lg:col-span-7 text-left relative z-10">
+            {/* Top Badges */}
+            <div className="flex flex-wrap items-center justify-start gap-3 mb-6">
+              <div className="brutal-tag bg-panel-1 border-line text-ink">
+                <span className="w-2.5 h-2.5 rounded-full bg-accent-emerald animate-ping" />
+                <span className="font-bold">ACCEPTING 2 NEW CLIENTS FOR Q2</span>
+              </div>
 
-          <div className="brutal-tag bg-white text-ink hidden sm:inline-flex">
-            <ShieldCheck className="w-3.5 h-3.5 text-brand" />
-            <span>FOUNDER-LED &bull; ZERO ACCOUNT HAND-OFFS</span>
-          </div>
-        </div>
+              <div className="brutal-tag bg-white text-ink hidden sm:inline-flex">
+                <ShieldCheck className="w-3.5 h-3.5 text-brand" />
+                <span>FOUNDER-LED &bull; ZERO ACCOUNT HAND-OFFS</span>
+              </div>
+            </div>
 
-        {/* Main Hero Header */}
-        <div className="text-center max-w-4xl mx-auto mb-10">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-display tracking-tight text-ink leading-[1.08] mb-6">
-            Crafting Clout.{' '}
-            <span className="relative inline-block mt-1">
-              <span className="relative z-10 bg-panel-dark text-white px-4 py-1.5 rounded-xl border-2 border-line shadow-brutal inline-block rotate-[-1deg]">
-                Building Brands.
+            {/* Main Hero Header */}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-display tracking-tight text-ink leading-[1.08] mb-6 relative">
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-ink via-brand to-ink bg-clip-text text-transparent drop-shadow-[0_2px_12px_rgba(91,47,184,0.2)]">
+                  Crafting Clout.
+                </span>
+              </span>{' '}
+              <span className="relative inline-block mt-2">
+                {/* Volumetric spotlight halo cast directly from the 3D camera on the right */}
+                <span className="absolute -inset-3 bg-gradient-to-r from-amber-300/60 via-purple-300/40 to-amber-200/60 rounded-2xl blur-xl -z-10 animate-pulse pointer-events-none" />
+                <span className="relative z-10 bg-panel-dark text-white px-4 sm:px-5 py-1.5 sm:py-2 rounded-2xl border-2 border-line shadow-brutal inline-block rotate-[-1deg] ring-2 ring-amber-300/80 shadow-[0_0_30px_rgba(251,191,36,0.4)]">
+                  Building Brands.
+                </span>
               </span>
-            </span>
-          </h1>
+            </h1>
 
-          <p className="text-lg sm:text-xl text-ink font-medium max-w-2xl mx-auto leading-relaxed mb-8">
-            We help ambitious startups, creators, and challenger brands turn fleeting attention into compounding revenue through viral video, high-ROAS paid ads, and narrative positioning.
-          </p>
+            {/* Hero Subtitle */}
+            <p className="text-lg sm:text-xl text-ink font-medium max-w-xl leading-relaxed mb-8">
+              We help ambitious startups, creators, and challenger brands turn fleeting attention into compounding revenue through viral video, high-ROAS paid ads, and narrative positioning.
+            </p>
 
-          {/* Primary Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={onOpenAudit}
-              className="brutal-btn-primary text-base py-4 px-8 w-full sm:w-auto shadow-brutal group"
-            >
-              <Sparkles className="w-5 h-5 text-amber-300 group-hover:rotate-12 transition-transform" />
-              <span>Claim Free 48h Growth Audit</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            {/* Primary Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-4 mb-4">
+              <button
+                onClick={onOpenAudit}
+                className="brutal-btn-primary text-base py-4 px-8 shadow-brutal group justify-center"
+              >
+                <Sparkles className="w-5 h-5 text-amber-300 group-hover:rotate-12 transition-transform" />
+                <span>Claim Free 48h Growth Audit</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
 
-            <a
-              href="#/case-studies"
-              className="brutal-btn-secondary text-base py-4 px-8 w-full sm:w-auto shadow-brutal flex items-center justify-center gap-2"
-            >
-              <Play className="w-4 h-4 text-brand fill-brand" />
-              <span>Explore Case Studies</span>
-            </a>
+              <a
+                href="#/case-studies"
+                className="brutal-btn-secondary text-base py-4 px-8 shadow-brutal flex items-center justify-center gap-2"
+              >
+                <Play className="w-4 h-4 text-brand fill-brand" />
+                <span>Explore Case Studies</span>
+              </a>
+            </div>
+
+            {/* Guarantees */}
+            <p className="text-xs font-mono text-ink font-bold flex items-center justify-start gap-2 flex-wrap">
+              <span className="text-accent-emerald">✓</span> 100% Free Strategy Session
+              <span className="text-ink/70 font-black">&bull;</span>
+              <span className="text-accent-emerald">✓</span> No Long Lock-in Contracts
+              <span className="text-ink/70 font-black">&bull;</span>
+              <span className="text-accent-emerald">✓</span> 48-Hour Turnaround
+            </p>
           </div>
 
-          <p className="text-xs font-mono text-ink font-bold mt-4 flex items-center justify-center gap-2 flex-wrap">
-            <span className="text-accent-emerald">✓</span> 100% Free Strategy Session
-            <span className="text-ink/70 font-black">&bull;</span>
-            <span className="text-accent-emerald">✓</span> No Long Lock-in Contracts
-            <span className="text-ink/70 font-black">&bull;</span>
-            <span className="text-accent-emerald">✓</span> 48-Hour Turnaround
-          </p>
+          {/* RIGHT COLUMN: 3D Cinema Production Camera & Floating 3D Objects */}
+          <div className="lg:col-span-5 relative flex items-center justify-center">
+            <HeroStudioRightStage />
+          </div>
+
         </div>
 
         {/* Hero Interactive Bento Matrix */}
@@ -201,20 +220,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
                 </span>
               </div>
 
-              {/* 3D Engine Image Showcase */}
-              <div className="relative rounded-xl overflow-hidden border-2 border-white/20 mb-4 bg-black/40 group-hover:border-accent-mint/60 transition-all duration-300 shadow-inner">
-                <img 
-                  src={heroEngineImg} 
-                  alt="CloutCraft 3D Viral Growth Engine" 
-                  className="w-full h-44 sm:h-52 object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  loading="eager"
-                />
-                <div className="absolute bottom-2 left-2 right-2 bg-panel-dark/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 flex items-center justify-between text-[11px] font-mono">
-                  <span className="text-accent-mint font-bold flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-amber-300" />
-                    Autonomous Creative Loop
-                  </span>
-                  <span className="text-purple-200 font-bold">+1320% Velocity</span>
+              {/* Performance Velocity Indicator */}
+              <div className="bg-black/30 border border-white/20 p-4 rounded-xl mb-4 space-y-3">
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className="text-purple-200">Creative Production Velocity</span>
+                  <span className="text-accent-mint font-bold">+1,320% MoM</span>
+                </div>
+                <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                  <div className="bg-gradient-to-r from-brand-light to-accent-mint h-full rounded-full w-[88%]" />
+                </div>
+                <div className="flex items-center justify-between text-[11px] font-mono text-purple-200">
+                  <span>3s View-Through Rate</span>
+                  <span className="font-bold text-white">72% Avg</span>
                 </div>
               </div>
 
