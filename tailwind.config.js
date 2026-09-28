@@ -7,24 +7,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#F5EEFD',
+        bg: '#FAF9FE',
         panel: {
-          1: '#EBE0FB',
-          2: '#DDCBFA',
-          3: '#CCAFF5',
-          dark: '#241447', // Deep obsidian purple for crystal-clear text contrast (15:1)
+          1: '#F5F0FF',
+          2: '#EDE5FC',
+          3: '#DDCBFA',
+          dark: '#0F0721', // Deep obsidian purple for crystal-clear contrast
         },
         brand: {
-          DEFAULT: '#5B2FB8', // High-contrast rich royal violet
-          hover: '#4A239E',
-          light: '#7C4BE8',
-          accent: '#9D76F7'
+          DEFAULT: '#6D28D9', // Vibrant royal violet
+          hover: '#5B21B6',
+          light: '#8B5CF6',
+          accent: '#A78BFA'
         },
         ink: {
-          DEFAULT: '#140A28', // Deep contrast ink black-purple
-          muted: '#2E1E50',
-          light: '#423168'
+          DEFAULT: '#0F172A', // Slate 900 for clean luxury readability
+          muted: '#475569',
+          light: '#64748B'
         },
+        line: '#E2E8F0',
         paper: '#FFFFFF',
         accent: {
           emerald: '#059669',
@@ -40,15 +41,15 @@ export default {
         mono: ['"IBM Plex Mono"', '"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
-        'brutal-sm': '3px 3px 0px #140A28',
-        'brutal': '5px 5px 0px #140A28',
-        'brutal-lg': '8px 8px 0px #140A28',
-        'brutal-brand': '5px 5px 0px #5B2FB8',
-        'brutal-white': '5px 5px 0px #FFFFFF',
-        'brutal-active': '1px 1px 0px #140A28',
+        'brutal-sm': '0 2px 8px -1px rgba(15, 23, 42, 0.07)',
+        'brutal': '0 6px 20px -3px rgba(15, 23, 42, 0.08)',
+        'brutal-lg': '0 14px 34px -4px rgba(15, 23, 42, 0.11)',
+        'brutal-brand': '0 8px 24px -2px rgba(109, 40, 217, 0.28)',
+        'brutal-white': '0 4px 16px -2px rgba(255, 255, 255, 0.5)',
+        'brutal-active': '0 1px 4px 0 rgba(15, 23, 42, 0.08)',
       },
       borderRadius: {
-        'brutal': '12px',
+        'brutal': '14px',
         'brutal-lg': '18px',
         'brutal-xl': '24px',
       },

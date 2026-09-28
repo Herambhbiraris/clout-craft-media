@@ -101,12 +101,12 @@ export const AuditBookingModal: React.FC<AuditBookingModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/80 backdrop-blur-sm animate-fade-in">
       
-      <div className="relative w-full max-w-xl brutal-card bg-white p-6 sm:p-8 max-h-[90vh] overflow-y-auto border-2 border-line shadow-brutal-lg">
+      <div className="relative w-full max-w-xl brutal-card bg-white p-6 sm:p-8 max-h-[90vh] overflow-y-auto border border-slate-200/90 shadow-2xl rounded-2xl">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-9 h-9 rounded-lg border-2 border-line bg-panel-1 text-ink flex items-center justify-center hover:bg-panel-2 transition-colors shadow-brutal-sm"
+          className="absolute top-4 right-4 w-9 h-9 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 flex items-center justify-center hover:bg-slate-100 transition-colors shadow-sm"
           aria-label="Close Modal"
         >
           <X className="w-5 h-5" />

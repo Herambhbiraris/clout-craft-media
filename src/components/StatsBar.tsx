@@ -14,23 +14,23 @@ export const StatsBar: React.FC = () => {
   ];
 
   return (
-    <div className="border-y-2 border-line bg-panel-dark text-white overflow-hidden py-4 select-none">
+    <div className="border-y border-slate-800/80 bg-slate-950 text-white overflow-hidden py-5 select-none shadow-sm">
       
       {/* Infinite Marquee Strip */}
       <div className="relative flex overflow-x-hidden">
         <div className="py-1 animate-marquee whitespace-nowrap flex items-center gap-8">
           {marqueeItems.concat(marqueeItems).map((item, idx) => (
-            <div key={idx} className="flex items-center gap-4 text-xs sm:text-sm font-mono font-bold tracking-widest text-white">
-              <span className="w-2.5 h-2.5 rounded-full bg-accent-mint inline-block shadow-sm" />
+            <div key={idx} className="flex items-center gap-4 text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-200">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block shadow-sm" />
               <span>{item}</span>
-              <span className="text-purple-300 font-serif text-lg">&bull;</span>
+              <span className="text-purple-400 font-serif text-lg">&bull;</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* 4 Pillars Strip Below */}
-      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 mt-5 pt-4 border-t border-white/20 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 mt-5 pt-4 border-t border-slate-800/90 grid grid-cols-2 md:grid-cols-4 gap-4">
         
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/30 flex items-center justify-center shrink-0">

@@ -67,10 +67,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
       />
 
       <header 
-        className={`sticky top-0 z-40 w-full transition-all duration-200 border-b-2 border-line ${
+        className={`sticky top-0 z-40 w-full transition-all duration-300 border-b border-slate-200/80 ${
           isScrolled 
-            ? 'bg-bg/95 backdrop-blur-md shadow-brutal-sm py-3' 
-            : 'bg-bg py-4'
+            ? 'bg-white/95 backdrop-blur-xl shadow-sm py-3' 
+            : 'bg-white/80 backdrop-blur-md py-4'
         }`}
       >
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 flex items-center justify-between">
@@ -81,33 +81,33 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
             className="flex items-center gap-3 group focus:outline-none text-left"
             aria-label="CloutCraft Media Home"
           >
-            <div className="bg-panel-dark px-3 py-1.5 rounded-lg border-2 border-line shadow-brutal-sm group-hover:-rotate-2 transition-transform duration-150">
+            <div className="bg-slate-950 px-3.5 py-1.5 rounded-xl border border-slate-800 shadow-sm flex items-center group-hover:border-purple-500/40 transition-colors">
               <img 
                 src={logoImg} 
                 alt="CloutCraft Media" 
-                className="h-6 sm:h-7 w-auto object-contain filter brightness-110" 
+                className="h-6 sm:h-7 w-auto object-contain" 
               />
             </div>
           </button>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-paper/90 border-2 border-line px-2.5 py-1.5 rounded-full shadow-brutal-sm">
+          <nav className="hidden lg:flex items-center gap-1 bg-slate-100/80 border border-slate-200/80 px-2 py-1.5 rounded-full shadow-inner">
             {navItems.map((item) => {
               const isActive = currentPath === item.path;
               return (
                 <button
                   key={item.path}
                   onClick={() => handleNavClick(item.path)}
-                  className={`text-xs font-bold px-3.5 py-1.5 rounded-full transition-all flex items-center gap-1.5 ${
+                  className={`text-xs font-semibold px-3.5 py-1.5 rounded-full transition-all flex items-center gap-1.5 ${
                     isActive 
-                      ? 'bg-panel-dark text-paper shadow-brutal-sm font-black' 
-                      : 'text-ink hover:text-brand hover:bg-panel-1'
+                      ? 'bg-white text-slate-900 shadow-sm font-bold' 
+                      : 'text-slate-600 hover:text-slate-950 hover:bg-white/60'
                   }`}
                 >
                   <span>{item.label}</span>
                   {item.badge && (
-                    <span className={`text-[9px] font-mono px-1.5 py-0.2 rounded-full font-bold ${
-                      isActive ? 'bg-accent-emerald text-ink' : 'bg-brand text-white'
+                    <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded-full font-bold ${
+                      isActive ? 'bg-purple-100 text-purple-700' : 'bg-slate-200 text-slate-700'
                     }`}>
                       {item.badge}
                     </span>
@@ -121,26 +121,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
           <div className="hidden md:flex items-center gap-2.5">
             <button
               onClick={toggleFullscreen}
-              className="p-2 rounded-lg border-2 border-line bg-paper shadow-brutal-sm text-ink hover:text-brand hover:bg-panel-1 transition-all"
+              className="p-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 shadow-sm transition-all"
               title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen Mode"}
               aria-label={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen Mode"}
             >
-              {isFullscreen ? <Minimize2 className="w-4 h-4 text-brand" /> : <Maximize2 className="w-4 h-4" />}
+              {isFullscreen ? <Minimize2 className="w-4 h-4 text-brand" /> : <Maximize2 className="w-4 h-4 text-slate-700" />}
             </button>
 
             <a 
               href="https://wa.me/917276998119" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-xs font-mono font-bold text-ink hover:text-brand flex items-center gap-1.5 border-2 border-line px-3 py-2 rounded-lg bg-paper shadow-brutal-sm hover:translate-x-0.5 hover:translate-y-0.5 transition-transform"
+              className="text-xs font-mono font-semibold text-emerald-800 flex items-center gap-1.5 border border-emerald-200/80 px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 transition-colors shadow-sm"
             >
-              <MessageCircle className="w-3.5 h-3.5 text-accent-emerald" />
+              <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
               <span>WhatsApp</span>
             </a>
 
             <button 
               onClick={onOpenAudit}
-              className="brutal-btn-primary text-xs py-2 px-4 shadow-brutal-sm"
+              className="brutal-btn-primary text-xs py-2 px-4 shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-300" />
               <span>Free 48h Audit</span>
@@ -152,7 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={toggleFullscreen}
-              className="p-2 rounded-lg border-2 border-line bg-paper shadow-brutal-sm text-ink"
+              className="p-2 rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm"
               aria-label="Toggle Fullscreen"
             >
               {isFullscreen ? <Minimize2 className="w-5 h-5 text-brand" /> : <Maximize2 className="w-5 h-5" />}
@@ -160,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
 
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg border-2 border-line bg-paper shadow-brutal-sm text-ink focus:outline-none"
+              className="p-2 rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm focus:outline-none"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

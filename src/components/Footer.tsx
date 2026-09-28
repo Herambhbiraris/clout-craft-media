@@ -18,13 +18,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
   };
 
   return (
-    <footer className="border-t-2 border-line bg-white">
+    <footer className="border-t border-slate-200/90 bg-white">
       
       {/* Pre-Footer Action Banner */}
-      <div className="bg-panel-dark text-white py-16 sm:py-20 border-b-2 border-line">
+      <div className="bg-slate-950 text-white py-16 sm:py-20 border-b border-slate-800/80">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="brutal-tag bg-white text-ink mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-brand" />
+          <div className="brutal-tag bg-purple-950/80 text-purple-200 border-purple-800/60 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
             <span>LET'S TALK SCALE</span>
           </div>
 
@@ -32,31 +32,33 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
             Ready to Build Your Brand's Next Chapter?
           </h2>
 
-          <p className="text-purple-100 text-base sm:text-lg max-w-xl mx-auto mb-8 font-medium">
+          <p className="text-slate-300 text-base sm:text-lg max-w-xl mx-auto mb-8 font-medium">
             Tell us about your current numbers and revenue bottlenecks — we will build your customized 48-hour growth tear-down and video hook architecture.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={onOpenAudit}
-              className="brutal-btn-primary w-full sm:w-auto py-4 px-8 text-base bg-white text-ink shadow-brutal-white hover:bg-panel-1 font-bold"
+              className="brutal-btn-primary w-full sm:w-auto py-4 px-8 text-base bg-white text-slate-900 border-slate-200 shadow-lg hover:bg-slate-50 font-bold"
+              style={{ background: '#FFFFFF', color: '#0F172A' }}
             >
-              <Sparkles className="w-4 h-4 text-brand" />
+              <Sparkles className="w-4 h-4 text-purple-600" />
               <span>Claim Free 48-Hour Growth Audit</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-4 h-4 text-slate-900" />
             </button>
 
             <a
               href="tel:+917276998119"
-              className="brutal-btn-secondary w-full sm:w-auto py-4 px-8 text-base bg-transparent text-white border-white shadow-brutal-white hover:bg-white/10 font-bold"
+              className="brutal-btn-secondary w-full sm:w-auto py-4 px-8 text-base bg-white/5 text-white border-white/20 shadow-md hover:bg-white/10 font-bold"
+              style={{ background: 'rgba(255, 255, 255, 0.05)', color: '#FFFFFF', borderColor: 'rgba(255, 255, 255, 0.2)' }}
             >
-              <Phone className="w-4 h-4 text-accent-mint" />
+              <Phone className="w-4 h-4 text-emerald-400" />
               <span>Call +91 72769 98119</span>
             </a>
           </div>
 
-          <div className="mt-6 flex items-center justify-center gap-2 font-mono text-xs text-purple-200 font-semibold">
-            <span className="w-2.5 h-2.5 rounded-full bg-accent-mint animate-ping" />
+          <div className="mt-6 flex items-center justify-center gap-2 font-mono text-xs text-slate-400 font-semibold">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
             <span>Accepting 2 Partner Brands for Q2/Q3 2026</span>
           </div>
         </div>
@@ -69,14 +71,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="bg-panel-dark px-3 py-1.5 rounded-lg border-2 border-line shadow-brutal-sm">
+              <div className="bg-slate-950 px-3.5 py-1.5 rounded-xl border border-slate-800 shadow-sm flex items-center">
                 <img 
                   src={logoImg} 
                   alt="CloutCraft Media" 
-                  className="h-6 w-auto object-contain filter brightness-110" 
+                  className="h-6 w-auto object-contain" 
                 />
               </div>
-              <span className="font-display font-black text-base text-ink">
+              <span className="font-display font-black text-base text-slate-900">
                 CLOUTCRAFT MEDIA
               </span>
             </div>
