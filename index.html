@@ -16,6 +16,13 @@
   </head>
   <body class="bg-bg text-ink antialiased selection:bg-brand selection:text-white min-h-screen overflow-x-hidden">
     <div id="root"></div>
+    <script>
+      // Automatically redirect to /docs/ on GitHub Pages if serving from repository root
+      if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+        var base = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+        location.replace(base + 'docs/' + location.search + location.hash);
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
