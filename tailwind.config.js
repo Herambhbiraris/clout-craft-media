@@ -1,4 +1,4 @@
-﻿/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -7,10 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#FCFAF5',
-        'off-white': '#FCFAF5',
+        bg: '#F6F2FD',
+        'off-white': '#F6F2FD',
+        canvas: '#F6F2FD',
         lavender: {
-          light: '#F7F3FF',
+          light: '#EDE5FF',
           DEFAULT: '#EDE5FF',
           dark: '#DDD0FA',
         },

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Sparkles, Phone, Mail, Instagram, Copy, Check, ArrowUpRight, MessageCircle, MapPin, ArrowRight } from 'lucide-react';
 import { useRouter } from '../context/RouterContext';
 import logoImg from '../assets/logo.png';
@@ -25,7 +25,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
       <div className="relative bg-[#160D2E] text-white py-20 sm:py-28 overflow-hidden border-b border-purple-500/20">
         
         {/* Cosmic vortex & volumetric purple light behind CTA */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[950px] opacity-25 pointer-events-none select-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[950px] opacity-45 mix-blend-screen pointer-events-none select-none">
           <img 
             src={vortexImg} 
             alt="Cosmic Vortex" 

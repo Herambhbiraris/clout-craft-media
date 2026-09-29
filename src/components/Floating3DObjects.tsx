@@ -1,37 +1,96 @@
-﻿import React from 'react';
-import heroStageImg from '../assets/hero_stage_feathered.png';
+import React from 'react';
+import { BarChart3, TrendingUp, Users, Clock, Box } from 'lucide-react';
+import heroStageImg from '../assets/hero_3d_stage_clean.png';
 
 /**
  * HeroStudioRightStage
  * Renders on the RIGHT side of the Hero section:
- * - 3D Cinema Production Camera on rock pedestal
- * - Translucent violet film strip trailing into the lens
- * - Floating purple crystals and gems
- * - Hand-drawn doodles ("IDEAS CONTENT ADS GROWTH REVENUE" and "MORE THAN* JUST CONTENT")
+ * - Ultra-clean 3D Cinema Production Camera on rock pedestal
+ * - Translucent violet film strip trailing from the lens
+ * - Floating purple crystals and volumetric lighting
+ * - Hand-drawn doodle ("IDEAS • CONTENT • ADS • REVENUE")
  * - 4 Floating Glass Stat Badges (3.2M+ Views, 72% ROAS, 50+ Brands, 48H Strategy)
  * - Ambient radial glow with gentle hovering animation
  */
 export const HeroStudioRightStage: React.FC = () => {
   return (
-    <div className="relative w-full max-w-[640px] flex items-center justify-center select-none overflow-visible">
+    <div className="relative w-full max-w-[660px] flex items-center justify-center select-none overflow-visible">
       {/* Studio Radial Violet Glow Accent behind the camera */}
       <div 
-        className="absolute inset-0 -top-6 bg-gradient-to-tr from-purple-600/20 via-indigo-500/15 to-purple-400/25 blur-3xl rounded-full -z-10 pointer-events-none scale-105" 
+        className="absolute inset-0 -top-6 bg-gradient-to-tr from-purple-600/20 via-indigo-500/15 to-purple-400/25 blur-3xl rounded-full -z-10 pointer-events-none scale-110" 
       />
 
       {/* 3D Floating Stage Composition */}
-      <div className="relative z-10 animate-float flex flex-col items-center w-full">
-        <div className="relative group cursor-pointer w-full flex items-center justify-center">
+      <div className="relative z-10 w-full flex flex-col items-center">
+        
+        {/* Main 3D Camera Object */}
+        <div className="relative w-full flex items-center justify-center animate-float">
           <img
             src={heroStageImg}
             alt="CloutCraft 3D Cinema Camera Production Stage"
-            className="w-full h-auto object-contain select-none transition-transform duration-700 ease-out group-hover:scale-[1.02] filter drop-shadow-[0_20px_35px_rgba(15,7,33,0.18)]"
+            className="w-full h-auto object-contain select-none transition-transform duration-700 ease-out hover:scale-[1.02] filter drop-shadow-[0_20px_45px_rgba(22,13,46,0.18)]"
             draggable={false}
           />
+
+          {/* FLOATING CARD 1: Top-Left (3.2M+ Views Generated) */}
+          <div className="absolute top-6 left-0 sm:-left-4 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-purple-200/80 shadow-[0_8px_24px_-4px_rgba(108,53,255,0.18)] flex items-center gap-3 z-20 animate-float">
+            <div className="w-8 h-8 rounded-xl bg-[#EDE5FF] flex items-center justify-center text-[#6C35FF] shrink-0">
+              <BarChart3 className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="font-display font-black text-base sm:text-lg text-[#160D2E] block leading-tight">3.2M+</span>
+              <span className="font-mono text-[9px] sm:text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Views Generated</span>
+            </div>
+          </div>
+
+          {/* FLOATING CARD 2: Top-Right (72% Avg ROAS Increase) */}
+          <div className="absolute top-10 right-0 sm:-right-4 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-purple-200/80 shadow-[0_8px_24px_-4px_rgba(108,53,255,0.18)] flex items-center gap-3 z-20 animate-float" style={{ animationDelay: '1.2s' }}>
+            <div className="w-8 h-8 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
+              <TrendingUp className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="font-display font-black text-base sm:text-lg text-[#160D2E] block leading-tight">72%</span>
+              <span className="font-mono text-[9px] sm:text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Avg ROAS Increase</span>
+            </div>
+          </div>
+
+          {/* FLOATING CARD 3: Bottom-Left (50+ Brands Scaled) */}
+          <div className="absolute bottom-10 left-2 sm:-left-2 bg-[#160D2E] text-white px-4 py-2.5 rounded-2xl border border-purple-800/60 shadow-[0_12px_30px_rgba(22,13,46,0.4)] flex items-center gap-3 z-20 animate-float" style={{ animationDelay: '0.6s' }}>
+            <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-purple-200 shrink-0">
+              <Users className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="font-display font-black text-base sm:text-lg text-white block leading-tight">50+</span>
+              <span className="font-mono text-[9px] sm:text-[10px] text-purple-200 font-bold block uppercase tracking-wider">Brands Scaled</span>
+            </div>
+          </div>
+
+          {/* FLOATING CARD 4: Bottom-Right (48H Strategy Delivery) */}
+          <div className="absolute bottom-8 right-2 sm:right-0 bg-[#160D2E] text-white px-4 py-2.5 rounded-2xl border border-purple-800/60 shadow-[0_12px_30px_rgba(22,13,46,0.4)] flex items-center gap-3 z-20 animate-float" style={{ animationDelay: '1.8s' }}>
+            <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-amber-300 shrink-0">
+              <Box className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="font-display font-black text-base sm:text-lg text-white block leading-tight">48H</span>
+              <span className="font-mono text-[9px] sm:text-[10px] text-purple-200 font-bold block uppercase tracking-wider">Strategy Delivery</span>
+            </div>
+          </div>
+
+          {/* Hand-Drawn Doodle Arrow: IDEAS -> CONTENT -> ADS -> REVENUE */}
+          <div className="absolute -left-10 sm:-left-14 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center pointer-events-none z-20 select-none">
+            <span className="text-[10px] font-mono font-black text-[#6C35FF] tracking-wider uppercase rotate-[-10deg] bg-white px-2.5 py-0.5 rounded-full border border-purple-200/80 shadow-sm whitespace-nowrap mb-1">
+              IDEAS &bull; ADS &bull; REVENUE
+            </span>
+            <svg className="w-14 h-10 text-[#6C35FF] rotate-[-15deg]" viewBox="0 0 70 50" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M 10 15 Q 35 5 55 35" />
+              <path d="M 45 35 L 55 35 L 53 23" />
+            </svg>
+          </div>
+
         </div>
 
-        {/* Soft Pedestal Shadow */}
-        <div className="w-[70%] h-5 bg-slate-900/15 rounded-[100%] blur-lg -mt-3 pointer-events-none" />
+        {/* Soft Pedestal Ambient Shadow */}
+        <div className="w-[60%] h-6 bg-purple-950/15 rounded-[100%] blur-xl -mt-4 pointer-events-none" />
       </div>
     </div>
   );
