@@ -1,6 +1,5 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Sparkles, ArrowRight, TrendingUp, Play, Flame, Zap, Check, ShieldCheck, Users } from 'lucide-react';
-import { HeroStudioRightStage } from './Floating3DObjects';
 import { TrustedBrandsBar } from './TrustedBrandsBar';
 import crownCleanImg from '../assets/crown_clean.png';
 
@@ -39,130 +38,112 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
   ];
 
   return (
-    <section id="top" className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 sm:pt-6 pb-16 overflow-hidden">
-      {/* Background ambient glow: Soft radiant violet halo behind stage & lilac canvas */}
+    <section id="top" className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center pt-6 sm:pt-10 pb-16 overflow-hidden">
+      {/* Background ambient glow: Centered radiant violet halo behind headline */}
       <div 
-        className="absolute top-12 right-[10%] w-[580px] h-[580px] bg-purple-400/15 blur-[120px] rounded-full -z-10 pointer-events-none" 
-      />
-      <div 
-        className="absolute top-28 left-[5%] w-[420px] h-[420px] bg-purple-300/10 blur-[100px] rounded-full -z-10 pointer-events-none" 
+        className="absolute top-8 left-1/2 -translate-x-1/2 w-[720px] h-[520px] bg-gradient-to-tr from-purple-500/15 via-indigo-400/10 to-purple-300/15 blur-[120px] rounded-full -z-10 pointer-events-none" 
       />
 
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         
-        {/* Two-Column Split Hero: Left Text & Right 3D Studio Stage */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center relative">
-          
-          {/* LEFT COLUMN: All Written Text, Badges, CTAs, and Guarantees */}
-          <div className="lg:col-span-6 text-left relative z-10">
-            {/* Top Badges */}
-            <div className="flex flex-wrap items-center justify-start gap-2.5 mb-5 sm:mb-6">
-              {/* Badge 1: Accepting 2 New Clients */}
-              <div className="bg-white/95 border border-[#2B1B48]/30 px-3.5 py-1.5 rounded-full shadow-sm flex items-center gap-2 text-xs font-mono font-bold text-[#1F1635]">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>ACCEPTING 2 NEW CLIENTS FOR Q2</span>
-              </div>
-
-              {/* Badge 2: Founder Led */}
-              <div className="bg-white/95 border border-[#2B1B48]/30 px-3.5 py-1.5 rounded-full shadow-sm hidden sm:inline-flex items-center gap-2 text-xs font-mono font-bold text-[#1F1635]">
-                <Zap className="w-3.5 h-3.5 text-purple-600 fill-purple-600" />
-                <span>FOUNDER-LED &bull; ZERO ACCOUNT HAND-OFFS</span>
-              </div>
+        {/* Centered Hero Header */}
+        <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center relative z-10 pt-2 sm:pt-6 pb-4">
+          {/* Top Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 mb-6">
+            {/* Badge 1: Accepting 2 New Clients */}
+            <div className="bg-white/95 border border-[#2B1B48]/30 px-4 py-1.5 rounded-full shadow-sm flex items-center gap-2 text-xs font-mono font-bold text-[#1F1635]">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>ACCEPTING 2 NEW CLIENTS FOR Q2</span>
             </div>
 
-            {/* Main Hero Header */}
-            <h1 className="text-4xl sm:text-6xl xl:text-7xl font-black font-display tracking-tight leading-[1.06] mb-6 relative">
-              {/* Decorative side scribble */}
-              <svg className="absolute -left-6 sm:-left-8 top-1 w-5 sm:w-6 h-10 text-purple-400/80 pointer-events-none select-none hidden sm:block" viewBox="0 0 24 40" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <path d="M 12 4 Q 4 12 12 18 Q 20 24 10 34" />
-              </svg>
-
-              <span className="block text-[#0F0721]">
-                Crafting Clout.
-              </span>
-              <span className="block mt-1 sm:mt-2 text-[#7C3AED]">
-                Building{' '}
-                <span className="relative inline-block">
-                  Brands.
-                  {/* Hand-drawn crown doodle angled on top */}
-                  <img 
-                    src={crownCleanImg} 
-                    alt="Crown Doodle" 
-                    className="absolute -top-7 sm:-top-10 -right-4 sm:-right-6 w-9 sm:w-12 h-auto pointer-events-none select-none drop-shadow-sm rotate-12"
-                    draggable={false}
-                  />
-                  {/* Hand-drawn sketchy double underline */}
-                  <svg className="absolute -bottom-2 sm:-bottom-3.5 left-0 w-full h-3 sm:h-4 text-[#7C3AED] pointer-events-none overflow-visible" viewBox="0 0 240 14" fill="none">
-                    <path d="M 4 5 C 60 3, 160 4, 235 6" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" />
-                    <path d="M 45 11 C 90 9.5, 170 9, 215 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                </span>
-              </span>
-            </h1>
-
-            {/* Hero Subtitle */}
-            <p className="text-base sm:text-lg text-slate-600 font-medium max-w-xl leading-relaxed mb-7 sm:mb-8">
-              We help ambitious startups, creators, and challenger brands turn fleeting attention into compounding revenue through viral video, high-ROAS paid ads, and narrative positioning.
-            </p>
-
-            {/* Primary Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3.5 sm:gap-4 mb-6">
-              {/* Claim Audit CTA */}
-              <button
-                onClick={onOpenAudit}
-                className="bg-[#15072B] hover:bg-[#220B44] text-white px-7 py-3.5 rounded-full border border-purple-500/40 shadow-[0_6px_20px_rgba(124,58,237,0.32)] flex items-center justify-center gap-2.5 font-bold text-sm sm:text-base transition-all group hover:shadow-[0_8px_26px_rgba(124,58,237,0.48)] hover:-translate-y-0.5"
-              >
-                <Sparkles className="w-4 h-4 text-amber-300 fill-amber-300 group-hover:rotate-12 transition-transform" />
-                <span>Claim Free 48h Growth Audit</span>
-                <ArrowRight className="w-4 h-4 text-purple-300 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              {/* Explore Case Studies CTA */}
-              <a
-                href="#/case-studies"
-                className="bg-white hover:bg-purple-50/60 text-[#1E0B3C] border border-[#DDD5F3] px-7 py-3.5 rounded-full shadow-sm flex items-center justify-center gap-2.5 font-bold text-sm sm:text-base transition-all hover:border-purple-300 hover:-translate-y-0.5"
-              >
-                <Play className="w-4 h-4 text-[#7C3AED] fill-[#7C3AED]" />
-                <span>Explore Case Studies</span>
-              </a>
-            </div>
-
-            {/* 3 Guarantees with soft purple checkmark badges */}
-            <div className="flex items-center justify-start gap-4 sm:gap-6 flex-wrap pt-1">
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#ECE5FA] text-[#7C3AED] flex items-center justify-center shrink-0">
-                  <Check className="w-3.5 h-3.5 stroke-[3]" />
-                </div>
-                <span className="text-xs sm:text-sm font-semibold text-slate-700">
-                  100% Free Strategy Session
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#ECE5FA] text-[#7C3AED] flex items-center justify-center shrink-0">
-                  <Check className="w-3.5 h-3.5 stroke-[3]" />
-                </div>
-                <span className="text-xs sm:text-sm font-semibold text-slate-700">
-                  No Long Lock-in Contracts
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#ECE5FA] text-[#7C3AED] flex items-center justify-center shrink-0">
-                  <Check className="w-3.5 h-3.5 stroke-[3]" />
-                </div>
-                <span className="text-xs sm:text-sm font-semibold text-slate-700">
-                  48-Hour Turnaround
-                </span>
-              </div>
+            {/* Badge 2: Founder Led */}
+            <div className="bg-white/95 border border-[#2B1B48]/30 px-4 py-1.5 rounded-full shadow-sm hidden sm:inline-flex items-center gap-2 text-xs font-mono font-bold text-[#1F1635]">
+              <Zap className="w-3.5 h-3.5 text-purple-600 fill-purple-600" />
+              <span>FOUNDER-LED &bull; ZERO ACCOUNT HAND-OFFS</span>
             </div>
           </div>
 
-          {/* RIGHT COLUMN: 3D Production Camera, Rocks, Ribbons & Floating Cards */}
-          <div className="lg:col-span-6 relative flex items-center justify-center pt-4 lg:pt-0">
-            <HeroStudioRightStage />
+          {/* Main Hero Header */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl xl:text-8xl font-black font-display tracking-tight leading-[1.08] mb-6 relative">
+            <span className="block text-[#0F0721]">
+              Crafting Clout.
+            </span>
+            <span className="block mt-1 sm:mt-2 text-[#7C3AED]">
+              Building{' '}
+              <span className="relative inline-block">
+                Brands.
+                {/* Hand-drawn crown doodle angled on top */}
+                <img 
+                  src={crownCleanImg} 
+                  alt="Crown Doodle" 
+                  className="absolute -top-7 sm:-top-11 -right-4 sm:-right-7 w-9 sm:w-14 h-auto pointer-events-none select-none drop-shadow-sm rotate-12"
+                  draggable={false}
+                />
+                {/* Hand-drawn sketchy double underline */}
+                <svg className="absolute -bottom-2 sm:-bottom-4 left-0 w-full h-3 sm:h-5 text-[#7C3AED] pointer-events-none overflow-visible" viewBox="0 0 240 14" fill="none">
+                  <path d="M 4 5 C 60 3, 160 4, 235 6" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" />
+                  <path d="M 45 11 C 90 9.5, 170 9, 215 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </span>
+            </span>
+          </h1>
+
+          {/* Hero Subtitle */}
+          <p className="text-base sm:text-xl text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-9 text-center">
+            We help ambitious startups, creators, and challenger brands turn fleeting attention into compounding revenue through viral video, high-ROAS paid ads, and narrative positioning.
+          </p>
+
+          {/* Primary Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 mb-8 w-full sm:w-auto">
+            {/* Claim Audit CTA */}
+            <button
+              onClick={onOpenAudit}
+              className="w-full sm:w-auto bg-[#15072B] hover:bg-[#220B44] text-white px-8 py-4 rounded-full border border-purple-500/40 shadow-[0_6px_22px_rgba(124,58,237,0.32)] flex items-center justify-center gap-2.5 font-bold text-sm sm:text-base transition-all group hover:shadow-[0_8px_28px_rgba(124,58,237,0.48)] hover:-translate-y-0.5"
+            >
+              <Sparkles className="w-4 h-4 text-amber-300 fill-amber-300 group-hover:rotate-12 transition-transform" />
+              <span>Claim Free 48h Growth Audit</span>
+              <ArrowRight className="w-4 h-4 text-purple-300 group-hover:translate-x-1 transition-transform" />
+            </button>
+
+            {/* Explore Case Studies CTA */}
+            <a
+              href="#/case-studies"
+              className="w-full sm:w-auto bg-white hover:bg-purple-50/60 text-[#1E0B3C] border border-[#DDD5F3] px-8 py-4 rounded-full shadow-sm flex items-center justify-center gap-2.5 font-bold text-sm sm:text-base transition-all hover:border-purple-300 hover:-translate-y-0.5"
+            >
+              <Play className="w-4 h-4 text-[#7C3AED] fill-[#7C3AED]" />
+              <span>Explore Case Studies</span>
+            </a>
           </div>
 
+          {/* 3 Guarantees with soft purple checkmark badges */}
+          <div className="flex items-center justify-center gap-4 sm:gap-8 flex-wrap pt-1 text-center">
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-full bg-[#ECE5FA] text-[#7C3AED] flex items-center justify-center shrink-0">
+                <Check className="w-3.5 h-3.5 stroke-[3]" />
+              </div>
+              <span className="text-xs sm:text-sm font-semibold text-slate-700">
+                100% Free Strategy Session
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-full bg-[#ECE5FA] text-[#7C3AED] flex items-center justify-center shrink-0">
+                <Check className="w-3.5 h-3.5 stroke-[3]" />
+              </div>
+              <span className="text-xs sm:text-sm font-semibold text-slate-700">
+                No Long Lock-in Contracts
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-full bg-[#ECE5FA] text-[#7C3AED] flex items-center justify-center shrink-0">
+                <Check className="w-3.5 h-3.5 stroke-[3]" />
+              </div>
+              <span className="text-xs sm:text-sm font-semibold text-slate-700">
+                48-Hour Turnaround
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* TRUSTED BRANDS SOCIAL PROOF BAR: Exactly below Hero Split */}
