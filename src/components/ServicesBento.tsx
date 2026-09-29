@@ -1,11 +1,6 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2, ChevronRight, Layers, Sparkles } from 'lucide-react';
 import { SERVICES_DATA } from '../data/mockData';
-import clapperIcon from '../assets/icon_content_production.png';
-import megaphoneIcon from '../assets/icon_paid_media.png';
-import chartIcon from '../assets/icon_brand_strategy.png';
-import lightbulbIcon from '../assets/icon_creative_strategy.png';
-import playCubeImg from '../assets/3d_play_cube.png';
 import phoneMockupImg from '../assets/3d_phone_mockup.png';
 
 interface ServicesBentoProps {
@@ -56,15 +51,10 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ onSelectService })
               <span className="font-mono text-xs font-black tracking-wider text-violet-bright bg-lavender-light px-3 py-1 rounded-full border border-purple-200/60">
                 01 // VIRAL HOOKS
               </span>
-              <img 
-                src={clapperIcon} 
-                alt="Viral Video Production" 
-                className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" 
-              />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
-              <div className="sm:col-span-8">
+              <div className="sm:col-span-7">
                 <h3 className="text-2xl sm:text-3xl font-black font-display text-ink mb-2 group-hover:text-violet-bright transition-colors">
                   Viral Video Production &amp; Editing
                 </h3>
@@ -85,15 +75,15 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ onSelectService })
                 </div>
               </div>
 
-              {/* 3D Visual in card: Phone mockup */}
-              <div className="sm:col-span-4 flex justify-center items-center">
-                <div className="relative group-hover:scale-105 transition-transform duration-500">
+              {/* Atmospheric Phone Scene Showcase with rounded corners */}
+              <div className="sm:col-span-5 flex justify-center items-center">
+                <div className="relative group-hover:scale-[1.02] transition-transform duration-500 w-full max-w-[270px]">
                   <img 
                     src={phoneMockupImg} 
-                    alt="Reels on Phone" 
-                    className="w-36 sm:w-44 h-auto object-contain drop-shadow-[0_15px_35px_rgba(22,13,46,0.22)]" 
+                    alt="Viral Reels Production" 
+                    className="w-full h-auto rounded-3xl object-contain shadow-[0_16px_36px_-6px_rgba(22,13,46,0.32)] border border-purple-200/60" 
                   />
-                  <div className="absolute -bottom-2 -right-2 bg-emerald-500 text-white font-mono text-[9px] font-black px-2.5 py-0.5 rounded-full shadow-md flex items-center gap-1">
+                  <div className="absolute -bottom-2.5 right-3 bg-emerald-500 text-white font-mono text-[9px] sm:text-[10px] font-black px-2.5 py-0.5 rounded-full shadow-md flex items-center gap-1.5 border border-white/20">
                     <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                     <span>72% 3s RETENTION</span>
                   </div>
@@ -121,11 +111,6 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ onSelectService })
               <span className="font-mono text-xs font-black tracking-wider text-violet-bright bg-white px-3 py-1 rounded-full border border-purple-200/60">
                 02 // PAID SCALE
               </span>
-              <img 
-                src={megaphoneIcon} 
-                alt="Paid Media" 
-                className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" 
-              />
             </div>
 
             <h3 className="text-2xl font-black font-display text-ink mb-1 group-hover:text-violet-bright transition-colors">
@@ -165,11 +150,6 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ onSelectService })
               <span className="font-mono text-xs font-black tracking-wider text-violet-bright bg-lavender-light px-3 py-1 rounded-full border border-purple-200/60">
                 03 // POSITIONING
               </span>
-              <img 
-                src={chartIcon} 
-                alt="Brand Strategy" 
-                className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300" 
-              />
             </div>
 
             <h3 className="text-xl font-black font-display text-ink mb-1 group-hover:text-violet-bright transition-colors">
@@ -200,11 +180,6 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ onSelectService })
               <span className="font-mono text-xs font-black tracking-wider text-purple-200 bg-white/10 px-3 py-1 rounded-full border border-white/20">
                 04 // MONETIZATION
               </span>
-              <img 
-                src={playCubeImg} 
-                alt="Talent Desk" 
-                className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-md" 
-              />
             </div>
 
             <h3 className="text-xl font-black font-display text-white mb-1 group-hover:text-purple-300 transition-colors">
@@ -234,11 +209,6 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ onSelectService })
               <span className="font-mono text-xs font-black tracking-wider text-violet-bright bg-lavender-light px-3 py-1 rounded-full border border-purple-200/60">
                 05 // SEEDING
               </span>
-              <img 
-                src={lightbulbIcon} 
-                alt="Influencer Marketing" 
-                className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300" 
-              />
             </div>
 
             <h3 className="text-xl font-black font-display text-ink mb-1 group-hover:text-violet-bright transition-colors">

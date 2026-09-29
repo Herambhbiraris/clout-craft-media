@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Menu, X, ArrowUpRight, MessageCircle, Maximize2, Minimize2, ZoomIn, ZoomOut } from 'lucide-react';
+import { Sparkles, Menu, X, ArrowUpRight, MessageCircle, Maximize2, Minimize2 } from 'lucide-react';
 import { useRouter } from '../context/RouterContext';
 import logoImg from '../assets/logo.png';
 
@@ -12,21 +12,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [zoomLevel, setZoomLevel] = useState<number>(1.25);
   const { currentPath, navigate } = useRouter();
-
-  useEffect(() => {
-    // Sync initial zoom state with documentElement
-    if (window.innerWidth > 640) {
-      document.documentElement.style.zoom = '1.25';
-    }
-  }, []);
-
-  const toggleZoom = () => {
-    const nextZoom = zoomLevel === 1.25 ? 1.0 : 1.25;
-    setZoomLevel(nextZoom);
-    document.documentElement.style.zoom = `${nextZoom}`;
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -141,26 +127,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
               aria-label={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen Mode"}
             >
               {isFullscreen ? <Minimize2 className="w-4 h-4 text-purple-700" /> : <Maximize2 className="w-4 h-4 text-slate-700" />}
-            </button>
-
-            {/* Zoom Toggle Button (125% / 100%) */}
-            <button
-              onClick={toggleZoom}
-              className="h-10 px-3 rounded-2xl border border-slate-200/90 bg-white hover:bg-slate-50 text-slate-700 shadow-sm flex items-center gap-1.5 transition-all text-xs font-mono font-bold"
-              title={zoomLevel === 1.25 ? "Reset Zoom to 100%" : "Zoom In to 125%"}
-              aria-label="Toggle Website Zoom"
-            >
-              {zoomLevel === 1.25 ? (
-                <>
-                  <ZoomOut className="w-3.5 h-3.5 text-purple-700" />
-                  <span className="text-purple-700 font-black">125%</span>
-                </>
-              ) : (
-                <>
-                  <ZoomIn className="w-3.5 h-3.5 text-slate-600" />
-                  <span className="text-slate-600">100%</span>
-                </>
-              )}
             </button>
 
             {/* WhatsApp Pill Button */}
