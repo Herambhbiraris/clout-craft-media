@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Sparkles, Menu, X, ArrowUpRight, Phone, MessageCircle, Maximize2, Minimize2 } from 'lucide-react';
+﻿import React, { useState, useEffect } from 'react';
+import { Sparkles, Menu, X, ArrowUpRight, MessageCircle, Maximize2, Minimize2 } from 'lucide-react';
 import { useRouter } from '../context/RouterContext';
 import logoImg from '../assets/logo.png';
 
@@ -16,7 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 30);
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (totalHeight > 0) {
         setScrollProgress((window.scrollY / totalHeight) * 100);
@@ -62,26 +62,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
     <>
       {/* Scroll Progress Bar */}
       <div 
-        className="fixed top-0 left-0 h-1 bg-panel-dark z-50 transition-all duration-100 ease-out"
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-500 z-50 transition-all duration-100 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
 
       <header 
-        className={`sticky top-0 z-40 w-full transition-all duration-300 border-b border-slate-200/80 ${
+        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
           isScrolled 
-            ? 'bg-white/95 backdrop-blur-xl shadow-sm py-3' 
-            : 'bg-white/80 backdrop-blur-md py-4'
+            ? 'bg-[#FAF8FE]/95 backdrop-blur-xl shadow-sm border-b border-purple-100/70 py-2.5' 
+            : 'bg-transparent py-4'
         }`}
       >
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 flex items-center justify-between">
           
-          {/* Logo Brand */}
+          {/* Logo Brand: Obsidian Glowing Pill Badge */}
           <button 
             onClick={() => handleNavClick('/')}
-            className="flex items-center gap-3 group focus:outline-none text-left"
+            className="flex items-center group focus:outline-none text-left"
             aria-label="CloutCraft Media Home"
           >
-            <div className="bg-slate-950 px-3.5 py-1.5 rounded-xl border border-slate-800 shadow-sm flex items-center group-hover:border-purple-500/40 transition-colors">
+            <div className="bg-[#120826] px-4 py-2 rounded-2xl border border-purple-500/40 shadow-[0_4px_16px_rgba(124,58,237,0.3)] flex items-center group-hover:border-purple-400 group-hover:shadow-[0_4px_22px_rgba(124,58,237,0.45)] transition-all">
               <img 
                 src={logoImg} 
                 alt="CloutCraft Media" 
@@ -90,24 +90,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
             </div>
           </button>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-slate-100/80 border border-slate-200/80 px-2 py-1.5 rounded-full shadow-inner">
+          {/* Desktop Nav Links: Elegant White Capsule Pill */}
+          <nav className="hidden lg:flex items-center gap-1 bg-white/95 border border-purple-100/80 px-2 py-1.5 rounded-full shadow-[0_4px_20px_-2px_rgba(124,58,237,0.08)]">
             {navItems.map((item) => {
               const isActive = currentPath === item.path;
               return (
                 <button
                   key={item.path}
                   onClick={() => handleNavClick(item.path)}
-                  className={`text-xs font-semibold px-3.5 py-1.5 rounded-full transition-all flex items-center gap-1.5 ${
+                  className={`text-xs font-semibold px-4 py-1.5 rounded-full transition-all flex items-center gap-1.5 ${
                     isActive 
-                      ? 'bg-white text-slate-900 shadow-sm font-bold' 
-                      : 'text-slate-600 hover:text-slate-950 hover:bg-white/60'
+                      ? 'bg-[#1E0B3C] text-white shadow-sm font-bold' 
+                      : 'text-slate-700 hover:text-slate-950 hover:bg-purple-50/60'
                   }`}
                 >
                   <span>{item.label}</span>
                   {item.badge && (
-                    <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded-full font-bold ${
-                      isActive ? 'bg-purple-100 text-purple-700' : 'bg-slate-200 text-slate-700'
+                    <span className={`text-[9px] font-mono px-2 py-0.5 rounded-full font-black ${
+                      isActive ? 'bg-[#6320EE] text-white' : 'bg-[#6320EE] text-white'
                     }`}>
                       {item.badge}
                     </span>
@@ -117,108 +117,103 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
             })}
           </nav>
 
-          {/* Action CTAs */}
+          {/* Action CTAs Matching Mockup */}
           <div className="hidden md:flex items-center gap-2.5">
+            {/* Fullscreen Button */}
             <button
               onClick={toggleFullscreen}
-              className="p-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 shadow-sm transition-all"
+              className="w-10 h-10 rounded-2xl border border-slate-200/90 bg-white hover:bg-slate-50 text-slate-700 shadow-sm flex items-center justify-center transition-all"
               title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen Mode"}
               aria-label={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen Mode"}
             >
-              {isFullscreen ? <Minimize2 className="w-4 h-4 text-brand" /> : <Maximize2 className="w-4 h-4 text-slate-700" />}
+              {isFullscreen ? <Minimize2 className="w-4 h-4 text-purple-700" /> : <Maximize2 className="w-4 h-4 text-slate-700" />}
             </button>
 
+            {/* WhatsApp Pill Button */}
             <a 
               href="https://wa.me/917276998119" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-xs font-mono font-semibold text-emerald-800 flex items-center gap-1.5 border border-emerald-200/80 px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 transition-colors shadow-sm"
+              className="text-xs font-bold text-slate-800 flex items-center gap-2 border border-slate-200/90 px-4 py-2.5 rounded-2xl bg-white hover:bg-slate-50 transition-colors shadow-sm"
             >
-              <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+              <MessageCircle className="w-4 h-4 text-[#25D366] fill-[#25D366]" />
               <span>WhatsApp</span>
             </a>
 
+            {/* Primary Audit CTA Button */}
             <button 
               onClick={onOpenAudit}
-              className="brutal-btn-primary text-xs py-2 px-4 shadow-sm"
+              className="bg-[#17082E] hover:bg-[#240B48] text-white text-xs font-bold py-2.5 px-4 rounded-2xl border border-purple-500/40 shadow-[0_4px_16px_rgba(124,58,237,0.3)] flex items-center gap-2 transition-all hover:shadow-[0_6px_22px_rgba(124,58,237,0.45)]"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+              <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
               <span>Free 48h Audit</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-purple-300" />
             </button>
           </div>
 
-          {/* Mobile Menu Toggle & Fullscreen */}
-          <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile Hamburger Toggle */}
+          <div className="flex md:hidden items-center gap-2">
             <button
-              onClick={toggleFullscreen}
-              className="p-2 rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm"
-              aria-label="Toggle Fullscreen"
-            >
-              {isFullscreen ? <Minimize2 className="w-5 h-5 text-brand" /> : <Maximize2 className="w-5 h-5" />}
-            </button>
-
-            <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm focus:outline-none"
+              className="p-2 rounded-xl bg-white border border-slate-200 text-slate-700 focus:outline-none"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
+
         </div>
 
-        {/* Mobile Dropdown Drawer */}
+        {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-3 mx-4 p-4 rounded-xl border-2 border-line bg-paper shadow-brutal space-y-3">
-            <div className="flex flex-col gap-1.5">
-              {navItems.map((item) => {
-                const isActive = currentPath === item.path;
-                return (
-                  <button
-                    key={item.path}
-                    onClick={() => handleNavClick(item.path)}
-                    className={`text-left font-bold px-3 py-2.5 rounded-lg transition-colors flex items-center justify-between ${
-                      isActive 
-                        ? 'bg-panel-dark text-paper font-black' 
-                        : 'text-ink hover:bg-panel-1'
-                    }`}
-                  >
-                    <span>{item.label}</span>
-                    {item.badge && (
-                      <span className="bg-brand text-white text-[10px] font-mono px-2 py-0.5 rounded-full">
-                        {item.badge}
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
+          <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-purple-100 shadow-xl px-4 py-6 mt-3 animate-fadeIn">
+            <div className="flex flex-col gap-2">
+              {navItems.map((item) => (
+                <button
+                  key={item.path}
+                  onClick={() => handleNavClick(item.path)}
+                  className={`text-left px-4 py-3 rounded-xl text-sm font-bold flex items-center justify-between ${
+                    currentPath === item.path
+                      ? 'bg-[#1E0B3C] text-white'
+                      : 'text-slate-800 hover:bg-purple-50'
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {item.badge && (
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full font-bold bg-[#6320EE] text-white">
+                      {item.badge}
+                    </span>
+                  )}
+                </button>
+              ))}
 
-            <div className="pt-3 border-t-2 border-line/30 flex flex-col gap-2">
-              <button 
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenAudit();
-                }}
-                className="brutal-btn-primary w-full text-center text-sm py-3 justify-center"
-              >
-                <Sparkles className="w-4 h-4 text-amber-300" />
-                <span>Claim Free 48h Growth Audit</span>
-              </button>
-              
-              <a 
-                href="https://wa.me/917276998119" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="brutal-btn-secondary w-full text-center text-sm py-2.5 justify-center"
-              >
-                <MessageCircle className="w-4 h-4 text-emerald-600" />
-                <span>WhatsApp (+91 72769 98119)</span>
-              </a>
+              <div className="pt-4 border-t border-slate-100 flex flex-col gap-2 mt-2">
+                <a 
+                  href="https://wa.me/917276998119" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-full py-3 rounded-xl border border-slate-200 bg-white text-slate-800 font-bold text-sm flex items-center justify-center gap-2 shadow-sm"
+                >
+                  <MessageCircle className="w-4 h-4 text-[#25D366] fill-[#25D366]" />
+                  <span>Chat on WhatsApp</span>
+                </a>
+
+                <button 
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenAudit();
+                  }}
+                  className="w-full bg-[#17082E] text-white py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-md"
+                >
+                  <Sparkles className="w-4 h-4 text-amber-300 fill-amber-300" />
+                  <span>Claim Free 48h Audit</span>
+                  <ArrowUpRight className="w-4 h-4 text-purple-300" />
+                </button>
+              </div>
             </div>
           </div>
         )}
+
       </header>
     </>
   );

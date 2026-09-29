@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { Sparkles, ArrowRight, TrendingUp, Play, Flame, Zap, CheckCircle2, ShieldCheck, Users } from 'lucide-react';
+﻿import React, { useState } from 'react';
+import { Sparkles, ArrowRight, TrendingUp, Play, Flame, Zap, Check, ShieldCheck, Users } from 'lucide-react';
 import { HeroStudioRightStage } from './Floating3DObjects';
+import { TrustedBrandsBar } from './TrustedBrandsBar';
+import crownCleanImg from '../assets/crown_clean.png';
 
 interface HeroProps {
   onOpenAudit: () => void;
@@ -37,91 +39,140 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
   ];
 
   return (
-    <section id="top" className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center pt-8 pb-16 lg:py-16 overflow-hidden">
-      {/* Background glow accents */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-3/4 h-80 bg-panel-2/30 blur-3xl rounded-full -z-10 pointer-events-none" />
+    <section id="top" className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 sm:pt-6 pb-16 overflow-hidden">
+      {/* Background ambient glow: Soft radiant violet halo behind stage & lilac canvas */}
+      <div 
+        className="absolute top-12 right-[10%] w-[580px] h-[580px] bg-purple-400/15 blur-[120px] rounded-full -z-10 pointer-events-none" 
+      />
+      <div 
+        className="absolute top-28 left-[5%] w-[420px] h-[420px] bg-purple-300/10 blur-[100px] rounded-full -z-10 pointer-events-none" 
+      />
 
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         
         {/* Two-Column Split Hero: Left Text & Right 3D Studio Stage */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-12 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center relative">
           
           {/* LEFT COLUMN: All Written Text, Badges, CTAs, and Guarantees */}
-          <div className="lg:col-span-7 text-left relative z-10">
+          <div className="lg:col-span-6 text-left relative z-10">
             {/* Top Badges */}
-            <div className="flex flex-wrap items-center justify-start gap-3 mb-6">
-              <div className="brutal-tag bg-purple-50 text-purple-950 border border-purple-200/80">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
-                <span className="font-bold">ACCEPTING 2 NEW CLIENTS FOR Q2</span>
+            <div className="flex flex-wrap items-center justify-start gap-2.5 mb-5 sm:mb-6">
+              {/* Badge 1: Accepting 2 New Clients */}
+              <div className="bg-white/95 border border-[#2B1B48]/30 px-3.5 py-1.5 rounded-full shadow-sm flex items-center gap-2 text-xs font-mono font-bold text-[#1F1635]">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>ACCEPTING 2 NEW CLIENTS FOR Q2</span>
               </div>
 
-              <div className="brutal-tag bg-white text-slate-700 border border-slate-200 hidden sm:inline-flex">
-                <ShieldCheck className="w-3.5 h-3.5 text-brand" />
+              {/* Badge 2: Founder Led */}
+              <div className="bg-white/95 border border-[#2B1B48]/30 px-3.5 py-1.5 rounded-full shadow-sm hidden sm:inline-flex items-center gap-2 text-xs font-mono font-bold text-[#1F1635]">
+                <Zap className="w-3.5 h-3.5 text-purple-600 fill-purple-600" />
                 <span>FOUNDER-LED &bull; ZERO ACCOUNT HAND-OFFS</span>
               </div>
             </div>
 
             {/* Main Hero Header */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display tracking-tight text-slate-900 leading-[1.08] mb-6 relative">
-              <span className="block text-slate-900 drop-shadow-sm">
+            <h1 className="text-4xl sm:text-6xl xl:text-7xl font-black font-display tracking-tight leading-[1.06] mb-6 relative">
+              {/* Decorative side scribble */}
+              <svg className="absolute -left-6 sm:-left-8 top-1 w-5 sm:w-6 h-10 text-purple-400/80 pointer-events-none select-none hidden sm:block" viewBox="0 0 24 40" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <path d="M 12 4 Q 4 12 12 18 Q 20 24 10 34" />
+              </svg>
+
+              <span className="block text-[#0F0721]">
                 Crafting Clout.
               </span>
-              <span className="inline-block mt-2 relative">
-                {/* Subtle volumetric light wash */}
-                <span className="absolute -inset-2 bg-gradient-to-r from-purple-600/25 via-indigo-500/20 to-purple-600/25 rounded-2xl blur-xl -z-10 pointer-events-none" />
-                <span className="relative z-10 bg-slate-950 text-white px-5 sm:px-6 py-1.5 sm:py-2 rounded-2xl border border-purple-500/35 shadow-xl shadow-purple-950/20 inline-block font-black">
-                  Building Brands.
+              <span className="block mt-1 sm:mt-2 text-[#7C3AED]">
+                Building{' '}
+                <span className="relative inline-block">
+                  Brands.
+                  {/* Hand-drawn crown doodle angled on top */}
+                  <img 
+                    src={crownCleanImg} 
+                    alt="Crown Doodle" 
+                    className="absolute -top-7 sm:-top-10 -right-4 sm:-right-6 w-9 sm:w-12 h-auto pointer-events-none select-none drop-shadow-sm rotate-12"
+                    draggable={false}
+                  />
+                  {/* Hand-drawn sketchy double underline */}
+                  <svg className="absolute -bottom-2 sm:-bottom-3.5 left-0 w-full h-3 sm:h-4 text-[#7C3AED] pointer-events-none overflow-visible" viewBox="0 0 240 14" fill="none">
+                    <path d="M 4 5 C 60 3, 160 4, 235 6" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" />
+                    <path d="M 45 11 C 90 9.5, 170 9, 215 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
                 </span>
               </span>
             </h1>
 
             {/* Hero Subtitle */}
-            <p className="text-lg sm:text-xl text-slate-600 font-medium max-w-xl leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-slate-600 font-medium max-w-xl leading-relaxed mb-7 sm:mb-8">
               We help ambitious startups, creators, and challenger brands turn fleeting attention into compounding revenue through viral video, high-ROAS paid ads, and narrative positioning.
             </p>
 
             {/* Primary Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-4 mb-5">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3.5 sm:gap-4 mb-6">
+              {/* Claim Audit CTA */}
               <button
                 onClick={onOpenAudit}
-                className="brutal-btn-primary text-base py-4 px-8 group justify-center"
+                className="bg-[#15072B] hover:bg-[#220B44] text-white px-7 py-3.5 rounded-full border border-purple-500/40 shadow-[0_6px_20px_rgba(124,58,237,0.32)] flex items-center justify-center gap-2.5 font-bold text-sm sm:text-base transition-all group hover:shadow-[0_8px_26px_rgba(124,58,237,0.48)] hover:-translate-y-0.5"
               >
-                <Sparkles className="w-5 h-5 text-amber-300 group-hover:rotate-12 transition-transform" />
+                <Sparkles className="w-4 h-4 text-amber-300 fill-amber-300 group-hover:rotate-12 transition-transform" />
                 <span>Claim Free 48h Growth Audit</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-purple-300 group-hover:translate-x-1 transition-transform" />
               </button>
 
+              {/* Explore Case Studies CTA */}
               <a
                 href="#/case-studies"
-                className="brutal-btn-secondary text-base py-4 px-8 flex items-center justify-center gap-2"
+                className="bg-white hover:bg-purple-50/60 text-[#1E0B3C] border border-[#DDD5F3] px-7 py-3.5 rounded-full shadow-sm flex items-center justify-center gap-2.5 font-bold text-sm sm:text-base transition-all hover:border-purple-300 hover:-translate-y-0.5"
               >
-                <Play className="w-4 h-4 text-brand fill-brand" />
+                <Play className="w-4 h-4 text-[#7C3AED] fill-[#7C3AED]" />
                 <span>Explore Case Studies</span>
               </a>
             </div>
 
-            {/* Guarantees */}
-            <p className="text-xs font-mono text-slate-500 font-bold flex items-center justify-start gap-2 flex-wrap">
-              <span className="text-emerald-600 font-black">✓</span> 100% Free Strategy Session
-              <span className="text-slate-300 font-black">&bull;</span>
-              <span className="text-emerald-600 font-black">✓</span> No Long Lock-in Contracts
-              <span className="text-slate-300 font-black">&bull;</span>
-              <span className="text-emerald-600 font-black">✓</span> 48-Hour Turnaround
-            </p>
+            {/* 3 Guarantees with soft purple checkmark badges */}
+            <div className="flex items-center justify-start gap-4 sm:gap-6 flex-wrap pt-1">
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-[#ECE5FA] text-[#7C3AED] flex items-center justify-center shrink-0">
+                  <Check className="w-3.5 h-3.5 stroke-[3]" />
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-slate-700">
+                  100% Free Strategy Session
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-[#ECE5FA] text-[#7C3AED] flex items-center justify-center shrink-0">
+                  <Check className="w-3.5 h-3.5 stroke-[3]" />
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-slate-700">
+                  No Long Lock-in Contracts
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-[#ECE5FA] text-[#7C3AED] flex items-center justify-center shrink-0">
+                  <Check className="w-3.5 h-3.5 stroke-[3]" />
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-slate-700">
+                  48-Hour Turnaround
+                </span>
+              </div>
+            </div>
           </div>
 
-          {/* RIGHT COLUMN: 3D Cinema Production Camera & Floating 3D Objects */}
-          <div className="lg:col-span-5 relative flex items-center justify-center">
+          {/* RIGHT COLUMN: 3D Production Camera, Rocks, Ribbons & Floating Cards */}
+          <div className="lg:col-span-6 relative flex items-center justify-center pt-4 lg:pt-0">
             <HeroStudioRightStage />
           </div>
 
         </div>
 
+        {/* TRUSTED BRANDS SOCIAL PROOF BAR: Exactly below Hero Split */}
+        <TrustedBrandsBar />
+
         {/* Hero Interactive Bento Matrix */}
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
           {/* Left Feature Card: Interactive Hook Architecture Lab */}
-          <div className="lg:col-span-7 brutal-card p-6 sm:p-8 bg-white flex flex-col justify-between">
+          <div className="lg:col-span-7 rounded-2xl p-6 sm:p-8 bg-white border border-slate-200/90 shadow-[0_4px_25px_-4px_rgba(124,58,237,0.06)] flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
                 <div className="flex items-center gap-2">
@@ -137,25 +188,25 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
                 </span>
               </div>
 
-              <div className="mb-4">
-                <p className="text-xs font-mono uppercase tracking-wider text-slate-500 font-bold mb-2">
-                  Select Viral Architecture:
+              <div className="mb-5">
+                <p className="text-xs font-mono uppercase tracking-wider text-slate-500 font-bold mb-2.5">
+                  SELECT VIRAL ARCHITECTURE:
                 </p>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                   {hookDemos.map((demo, idx) => (
                     <button
                       key={idx}
                       onClick={() => setSelectedHook(idx)}
-                      className={`text-left p-3 rounded-xl border text-xs font-bold transition-all ${
+                      className={`text-left p-3.5 rounded-xl border text-xs font-bold transition-all ${
                         selectedHook === idx
-                          ? 'bg-slate-950 text-white border-purple-500/40 shadow-md -translate-y-0.5'
-                          : 'bg-slate-50/80 text-slate-700 border-slate-200/80 hover:bg-purple-50/50'
+                          ? 'bg-[#180C2E] text-white border-purple-500/50 shadow-md -translate-y-0.5'
+                          : 'bg-slate-50 text-slate-700 border-slate-200/80 hover:bg-purple-50/50'
                       }`}
                     >
                       <div className="flex items-center gap-1.5 mb-1">
-                        {idx === 0 && <Flame className="w-3.5 h-3.5 text-rose-500" />}
+                        {idx === 0 && <Flame className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />}
                         {idx === 1 && <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />}
-                        {idx === 2 && <Zap className="w-3.5 h-3.5 text-amber-500" />}
+                        {idx === 2 && <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />}
                         <span className="truncate">{demo.type}</span>
                       </div>
                       <div className={`text-[10px] font-mono font-medium ${selectedHook === idx ? 'text-purple-300' : 'text-slate-500'}`}>
@@ -167,9 +218,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
               </div>
 
               {/* Hook Script Preview Window */}
-              <div className="bg-slate-50 border border-slate-200/80 p-5 rounded-xl mb-5">
+              <div className="bg-slate-50/80 border border-slate-200/80 p-5 rounded-xl mb-5">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[11px] font-mono font-black text-brand uppercase tracking-wider">
+                  <span className="text-[11px] font-mono font-black text-[#7C3AED] uppercase tracking-wider">
                     {hookDemos[selectedHook].tag}
                   </span>
                   <span className="text-[11px] font-mono text-slate-600 font-bold bg-white px-2 py-0.5 rounded border border-slate-200">
@@ -188,7 +239,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
                 <span className="text-[11px] font-mono uppercase font-bold text-slate-600 block">
                   Measured Retention Impact
                 </span>
-                <span className="text-xl sm:text-2xl font-black font-display text-brand">
+                <span className="text-xl sm:text-2xl font-black font-display text-[#7C3AED]">
                   {hookDemos[selectedHook].stat}
                 </span>
               </div>
@@ -207,11 +258,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
           <div className="lg:col-span-5 flex flex-col gap-6">
             
             {/* 3D Viral Engine Visual & Top Stat Block */}
-            <div className="brutal-card p-6 bg-slate-950 text-white border border-purple-500/30 shadow-xl shadow-purple-950/20 relative overflow-hidden group">
+            <div className="rounded-2xl p-6 bg-[#130826] text-white border border-purple-500/30 shadow-xl shadow-purple-950/20 relative overflow-hidden group">
               <div className="flex items-center justify-between mb-4 relative z-10">
                 <span className="font-mono text-xs uppercase tracking-widest text-purple-300 font-bold flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  VIRAL GROWTH ENGINE
+                  VIRAL GROWTH ENGINE // 3D CORE
                 </span>
                 <span className="bg-emerald-500/20 text-emerald-300 font-mono text-xs px-2.5 py-0.5 rounded-full font-bold border border-emerald-500/40">
                   VERIFIED
@@ -219,13 +270,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
               </div>
 
               {/* Performance Velocity Indicator */}
-              <div className="bg-white/5 border border-white/10 p-4 rounded-xl mb-4 space-y-3">
+              <div className="bg-white/5 border border-white/10 p-4 rounded-xl mb-5 space-y-3">
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="text-slate-300">Creative Production Velocity</span>
                   <span className="text-emerald-400 font-bold">+1,320% MoM</span>
                 </div>
-                <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-                  <div className="bg-gradient-to-r from-purple-500 to-emerald-400 h-full rounded-full w-[88%]" />
+                <div className="w-full bg-white/10 h-2.5 rounded-full overflow-hidden">
+                  <div className="bg-gradient-to-r from-purple-500 via-indigo-400 to-emerald-400 h-full rounded-full w-[88%]" />
                 </div>
                 <div className="flex items-center justify-between text-[11px] font-mono text-slate-400">
                   <span>3s View-Through Rate</span>
@@ -233,11 +284,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
                 </div>
               </div>
 
-              <div className="flex items-baseline justify-between mb-1">
-                <div className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-white">
-                  28.4M+
+              {/* Reach Metric and mini equalizer chart */}
+              <div className="flex items-end justify-between mb-2">
+                <div>
+                  <div className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-white">
+                    28.4M+
+                  </div>
+                  <span className="font-mono text-xs text-purple-300 font-bold block mt-0.5">
+                    TOTAL VIEWS GENERATED
+                  </span>
                 </div>
-                <span className="font-mono text-xs text-purple-300 font-bold">AGGREGATE REACH</span>
+
+                {/* Mini animated equalizer / bar chart */}
+                <div className="flex items-end gap-1 h-10 pb-1">
+                  <div className="w-1.5 bg-purple-500/60 rounded-t h-3 animate-pulse" />
+                  <div className="w-1.5 bg-purple-500/80 rounded-t h-5 animate-pulse" style={{ animationDelay: '0.2s' }} />
+                  <div className="w-1.5 bg-purple-400 rounded-t h-7 animate-pulse" style={{ animationDelay: '0.4s' }} />
+                  <div className="w-1.5 bg-purple-300 rounded-t h-4 animate-pulse" style={{ animationDelay: '0.1s' }} />
+                  <div className="w-1.5 bg-emerald-400 rounded-t h-9 animate-pulse" style={{ animationDelay: '0.3s' }} />
+                  <div className="w-1.5 bg-purple-200 rounded-t h-8 animate-pulse" style={{ animationDelay: '0.5s' }} />
+                </div>
               </div>
               <p className="text-xs text-slate-300 font-medium leading-relaxed">
                 Organic video impressions and performance ad reach generated across our client partner ecosystem.
@@ -246,19 +312,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
 
             {/* Middle Split Metrics */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="brutal-card p-5 bg-white border border-slate-200/90 shadow-sm">
+              <div className="rounded-2xl p-5 bg-white border border-slate-200/90 shadow-sm">
                 <span className="font-mono text-[11px] uppercase font-bold text-slate-500 block mb-1">
                   AVERAGE ROAS
                 </span>
                 <div className="text-3xl font-black font-display text-slate-900">
                   4.7x
                 </div>
-                <span className="text-xs font-mono text-brand font-bold mt-1 block">
+                <span className="text-xs font-mono text-[#7C3AED] font-bold mt-1 block">
                   On paid acquisition
                 </span>
               </div>
 
-              <div className="brutal-card p-5 bg-white border border-slate-200/90 shadow-sm">
+              <div className="rounded-2xl p-5 bg-white border border-slate-200/90 shadow-sm">
                 <span className="font-mono text-[11px] uppercase font-bold text-slate-500 block mb-1">
                   FOUNDER RETENTION
                 </span>
@@ -272,8 +338,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
             </div>
 
             {/* Bottom Founder Promise */}
-            <div className="brutal-card p-4 bg-white border border-slate-200/90 shadow-sm flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center shrink-0 shadow-sm">
+            <div className="rounded-2xl p-4 bg-white border border-slate-200/90 shadow-sm flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#130826] border border-purple-500/30 flex items-center justify-center shrink-0 shadow-sm">
                 <Users className="w-6 h-6 text-purple-300" />
               </div>
               <div>

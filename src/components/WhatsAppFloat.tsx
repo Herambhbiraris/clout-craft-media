@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { MessageCircle, X } from 'lucide-react';
 
 export const WhatsAppFloat: React.FC = () => {
@@ -9,12 +9,12 @@ export const WhatsAppFloat: React.FC = () => {
   );
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    <div className="fixed bottom-6 right-6 z-40 flex items-center gap-3">
       
-      {/* Tooltip prompt */}
+      {/* Tooltip prompt horizontally to the left */}
       {showTooltip && (
-        <div className="relative mb-2.5 bg-white text-slate-800 px-3.5 py-2 rounded-xl border border-slate-200/90 shadow-lg text-xs font-semibold flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+        <div className="bg-white text-slate-800 px-4 py-2 rounded-full border border-slate-200/90 shadow-lg text-xs font-semibold flex items-center gap-2 select-none animate-fadeIn">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>Chat directly with the founder</span>
           <button 
             onClick={() => setShowTooltip(false)}
@@ -26,13 +26,13 @@ export const WhatsAppFloat: React.FC = () => {
         </div>
       )}
 
-      {/* Button */}
+      {/* WhatsApp Button */}
       <a
         href={`https://wa.me/917276998119?text=${defaultMessage}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="w-14 h-14 rounded-2xl bg-[#25D366] border border-emerald-400/40 flex items-center justify-center shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/35 hover:-translate-y-1 transition-all group"
+        className="w-13 h-13 sm:w-14 sm:h-14 p-3 sm:p-3.5 rounded-full bg-[#25D366] border border-emerald-400/40 flex items-center justify-center shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/35 hover:scale-105 transition-all group shrink-0"
       >
         <MessageCircle className="w-7 h-7 text-white fill-white group-hover:scale-110 transition-transform" />
       </a>
