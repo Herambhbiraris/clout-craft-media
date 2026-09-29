@@ -25,13 +25,26 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
       <div className="relative bg-[#160D2E] text-white py-20 sm:py-28 overflow-hidden border-b border-purple-500/20">
         
         {/* Cosmic vortex & volumetric purple light behind CTA */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[950px] opacity-45 mix-blend-screen pointer-events-none select-none">
-          <img 
-            src={vortexImg} 
-            alt="Cosmic Vortex" 
-            className="w-full h-auto object-contain animate-spin" 
-            style={{ animationDuration: '60s' }}
-          />
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[900px] pointer-events-none select-none flex items-center justify-center"
+          style={{ perspective: '1200px' }}
+        >
+          {/* 3D Tilted Disk Plane: Inclined at 68deg like a real celestial galaxy accretion disk */}
+          <div 
+            className="w-full aspect-square flex items-center justify-center"
+            style={{ 
+              transform: 'rotateX(68deg) rotateY(-5deg)',
+              transformStyle: 'preserve-3d'
+            }}
+          >
+            {/* Circular face-on galaxy spinning continuously within the tilted 3D plane */}
+            <img 
+              src={vortexImg} 
+              alt="Cosmic Vortex Galaxy Disk" 
+              className="w-full h-full object-contain animate-spin opacity-55 mix-blend-screen filter drop-shadow-[0_0_90px_rgba(168,85,247,0.6)]" 
+              style={{ animationDuration: '45s' }}
+            />
+          </div>
         </div>
 
         {/* Ambient violet aura */}

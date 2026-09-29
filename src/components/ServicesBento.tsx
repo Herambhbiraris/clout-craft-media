@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ArrowRight, CheckCircle2, ChevronRight, Layers, Sparkles } from 'lucide-react';
 import { SERVICES_DATA } from '../data/mockData';
 import clapperIcon from '../assets/icon_content_production.png';
@@ -91,10 +91,11 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ onSelectService })
                   <img 
                     src={phoneMockupImg} 
                     alt="Reels on Phone" 
-                    className="w-32 sm:w-36 h-auto object-contain drop-shadow-xl" 
+                    className="w-36 sm:w-44 h-auto object-contain drop-shadow-[0_15px_35px_rgba(22,13,46,0.22)]" 
                   />
-                  <div className="absolute -bottom-2 -right-2 bg-emerald-500 text-white font-mono text-[9px] font-black px-2 py-0.5 rounded-full shadow-sm">
-                    72% 3s RETENTION
+                  <div className="absolute -bottom-2 -right-2 bg-emerald-500 text-white font-mono text-[9px] font-black px-2.5 py-0.5 rounded-full shadow-md flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    <span>72% 3s RETENTION</span>
                   </div>
                 </div>
               </div>
