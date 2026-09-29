@@ -1,16 +1,16 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bg: #FAF9FE;
-  --panel-1: #F5F0FF;
-  --panel-2: #EDE5FC;
-  --panel-3: #DDCBFA;
-  --panel-dark: #0F0721;
-  --brand: #6D28D9;
-  --ink: #0F172A;
-  --line: #E2E8F0;
+  --bg: #FCFAF5;
+  --panel-1: #F7F3FF;
+  --panel-2: #EDE5FF;
+  --panel-3: #E3D7FC;
+  --panel-dark: #160D2E;
+  --brand: #6C35FF;
+  --ink: #17131F;
+  --line: #EAE4F5;
   --paper: #FFFFFF;
   width: 100%;
   min-width: 100%;
@@ -24,8 +24,8 @@ body {
   color: var(--ink);
   font-family: 'Plus Jakarta Sans', Montserrat, sans-serif;
   background-image: 
-    radial-gradient(at 0% 0%, rgba(109, 40, 217, 0.04) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(91, 47, 184, 0.03) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(108, 53, 255, 0.035) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(33, 19, 63, 0.025) 0px, transparent 50%);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -39,50 +39,50 @@ p {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF9FE;
+  background: #FCFAF5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C4B5FD;
+  background: #DDD0FA;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8B5CF6;
+  background: #6C35FF;
 }
 
-/* Modern Luxury Studio Card Signature */
+/* 2026 Creative Agency Card Signature */
 .brutal-card {
   background-color: var(--paper);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 16px;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  border: 1px solid rgba(108, 53, 255, 0.14);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px -2px rgba(33, 19, 63, 0.05), 0 2px 6px -1px rgba(33, 19, 63, 0.02);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
 }
 
 .brutal-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(124, 58, 237, 0.35);
-  box-shadow: 0 16px 36px -4px rgba(91, 47, 184, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+  border-color: rgba(108, 53, 255, 0.35);
+  box-shadow: 0 16px 36px -4px rgba(108, 53, 255, 0.12), 0 4px 12px -2px rgba(33, 19, 63, 0.04);
 }
 
-/* Explicit background overrides so utility classes or modifiers always win */
+/* Explicit background overrides */
 .brutal-card.bg-panel-dark,
 .brutal-card.bg-\[\#241447\],
 .brutal-card-dark,
 .bg-panel-dark.brutal-card {
-  background-color: #0F0721 !important;
+  background-color: #160D2E !important;
   color: #FFFFFF !important;
-  border-color: rgba(139, 92, 246, 0.25) !important;
-  box-shadow: 0 8px 30px -4px rgba(15, 7, 33, 0.5) !important;
+  border-color: rgba(108, 53, 255, 0.3) !important;
+  box-shadow: 0 12px 36px -6px rgba(14, 7, 29, 0.5) !important;
 }
 
 .brutal-card.bg-panel-1,
 .bg-panel-1.brutal-card {
-  background-color: #F8F5FF !important;
+  background-color: #F7F3FF !important;
 }
 
 .brutal-card.bg-panel-2,
 .bg-panel-2.brutal-card {
-  background-color: #F3ECFF !important;
+  background-color: #EDE5FF !important;
 }
 
 .brutal-card.bg-white,
@@ -98,110 +98,80 @@ p {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: linear-gradient(135deg, #0F0721 0%, #27124E 100%);
-  color: #FFFFFF !important;
+  background-color: #160D2E;
+  color: #FFFFFF;
+  border: 1px solid rgba(108, 53, 255, 0.45);
+  border-radius: 9999px;
   font-weight: 700;
-  padding: 13px 26px;
-  border: 1px solid rgba(167, 139, 250, 0.35);
-  border-radius: 12px;
-  box-shadow: 0 4px 16px -2px rgba(91, 47, 184, 0.28);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-  user-select: none;
+  box-shadow: 0 4px 16px rgba(108, 53, 255, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .brutal-btn-primary:hover {
+  background-color: #21133F;
+  border-color: rgba(108, 53, 255, 0.65);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -2px rgba(91, 47, 184, 0.42);
-  background: linear-gradient(135deg, #180D35 0%, #35196A 100%);
-  border-color: rgba(196, 181, 253, 0.6);
-  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(108, 53, 255, 0.38);
+}
+
+.brutal-btn-primary:active {
+  transform: translateY(0);
 }
 
 .brutal-btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   background-color: #FFFFFF;
-  color: #0F172A !important;
+  color: #17131F;
+  border: 1px solid rgba(108, 53, 255, 0.22);
+  border-radius: 9999px;
   font-weight: 700;
-  padding: 13px 26px;
-  border: 1px solid rgba(226, 232, 240, 1);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.06);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-  user-select: none;
+  box-shadow: 0 2px 10px rgba(33, 19, 63, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .brutal-btn-secondary:hover {
+  background-color: #F7F3FF;
+  border-color: rgba(108, 53, 255, 0.4);
   transform: translateY(-2px);
-  border-color: rgba(124, 58, 237, 0.35);
-  box-shadow: 0 6px 20px -2px rgba(91, 47, 184, 0.12);
-  color: #6D28D9 !important;
-  background-color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(108, 53, 255, 0.12);
 }
 
-/* Modern Status Pills */
+.brutal-btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Elegant Metatags */
 .brutal-tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   padding: 6px 14px;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 9999px;
+  font-size: 11px;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
-  background-color: #FFFFFF;
-  color: #0F172A;
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 9999px;
+  border: 1px solid rgba(108, 53, 255, 0.2);
+  background: #FFFFFF;
 }
 
-.brutal-tag.bg-panel-dark,
-.bg-panel-dark.brutal-tag {
-  background-color: #0F0721 !important;
-  color: #FFFFFF !important;
-  border-color: rgba(139, 92, 246, 0.3) !important;
+/* Glassmorphism Accents */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
 }
 
-.brutal-tag.bg-panel-1,
-.bg-panel-1.brutal-tag {
-  background-color: #F8F5FF !important;
-  color: #4C1D95 !important;
-  border-color: rgba(196, 181, 253, 0.6) !important;
+.glass-panel-dark {
+  background: rgba(22, 13, 46, 0.88);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(108, 53, 255, 0.25);
+  border-radius: 20px;
 }
-
-.brutal-tag.bg-white,
-.bg-white.brutal-tag {
-  background-color: #FFFFFF !important;
-  color: #0F172A !important;
-  border-color: rgba(226, 232, 240, 0.9) !important;
-}
-
-/* Ticket Notches for Why CloutCraft / Proof */
-.ticket-card {
-  position: relative;
-  border: 1px dashed rgba(203, 213, 225, 0.9);
-  border-radius: 14px;
-  background-color: var(--paper);
-  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
-}
-
-.ticket-card::before, .ticket-card::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 18px;
-  height: 18px;
-  background-color: var(--bg);
-  border: 1px dashed rgba(203, 213, 225, 0.9);
-  border-radius: 50%;
-  transform: translateY(-50%);
-}
-
-.ticket-card::before { left: -10px; }
-.ticket-card::after { right: -10px; }
-

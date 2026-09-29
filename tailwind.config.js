@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+﻿/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -7,25 +7,44 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#FAF9FE',
-        panel: {
-          1: '#F5F0FF',
-          2: '#EDE5FC',
-          3: '#DDCBFA',
-          dark: '#0F0721', // Deep obsidian purple for crystal-clear contrast
+        bg: '#FCFAF5',
+        'off-white': '#FCFAF5',
+        lavender: {
+          light: '#F7F3FF',
+          DEFAULT: '#EDE5FF',
+          dark: '#DDD0FA',
+        },
+        purple: {
+          deep: '#21133F',
+          dark: '#160D2E',
+          obsidian: '#0E071D',
+          border: 'rgba(108, 53, 255, 0.18)',
+        },
+        violet: {
+          bright: '#6C35FF',
+          DEFAULT: '#6C35FF',
+          hover: '#5824E5',
+          light: '#8F66FF',
         },
         brand: {
-          DEFAULT: '#6D28D9', // Vibrant royal violet
-          hover: '#5B21B6',
-          light: '#8B5CF6',
-          accent: '#A78BFA'
+          DEFAULT: '#6C35FF',
+          hover: '#5824E5',
+          light: '#8F66FF',
+          dark: '#21133F',
         },
         ink: {
-          DEFAULT: '#0F172A', // Slate 900 for clean luxury readability
-          muted: '#475569',
-          light: '#64748B'
+          DEFAULT: '#17131F',
+          muted: '#524B63',
+          light: '#7A728E',
         },
-        line: '#E2E8F0',
+        panel: {
+          1: '#F7F3FF',
+          2: '#EDE5FF',
+          3: '#E3D7FC',
+          dark: '#160D2E',
+          deep: '#21133F',
+        },
+        line: '#EAE4F5',
         paper: '#FFFFFF',
         accent: {
           emerald: '#059669',
@@ -41,22 +60,20 @@ export default {
         mono: ['"IBM Plex Mono"', '"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
-        'brutal-sm': '0 2px 8px -1px rgba(15, 23, 42, 0.07)',
-        'brutal': '0 6px 20px -3px rgba(15, 23, 42, 0.08)',
-        'brutal-lg': '0 14px 34px -4px rgba(15, 23, 42, 0.11)',
-        'brutal-brand': '0 8px 24px -2px rgba(109, 40, 217, 0.28)',
-        'brutal-white': '0 4px 16px -2px rgba(255, 255, 255, 0.5)',
-        'brutal-active': '0 1px 4px 0 rgba(15, 23, 42, 0.08)',
+        'agency': '0 4px 20px -2px rgba(33, 19, 63, 0.05), 0 2px 6px -1px rgba(33, 19, 63, 0.02)',
+        'agency-hover': '0 16px 36px -4px rgba(108, 53, 255, 0.12), 0 4px 12px -2px rgba(33, 19, 63, 0.04)',
+        'agency-dark': '0 12px 36px -6px rgba(14, 7, 29, 0.5), 0 4px 12px -2px rgba(108, 53, 255, 0.15)',
+        'glow-violet': '0 0 24px rgba(108, 53, 255, 0.25)',
       },
       borderRadius: {
-        'brutal': '14px',
-        'brutal-lg': '18px',
-        'brutal-xl': '24px',
+        'agency': '16px',
+        'agency-lg': '20px',
+        'agency-xl': '28px',
       },
       animation: {
-        'marquee': 'marquee 25s linear infinite',
-        'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 3s ease-in-out infinite',
+        'marquee': 'marquee 28s linear infinite',
+        'pulse-glow': 'pulseGlow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float': 'float 3.5s ease-in-out infinite',
       },
       keyframes: {
         marquee: {
@@ -64,12 +81,12 @@ export default {
           '100%': { transform: 'translateX(-50%)' },
         },
         pulseGlow: {
-          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
-          '50%': { opacity: '0.75', transform: 'scale(1.05)' },
+          '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+          '50%': { opacity: '0.8', transform: 'scale(1.05)' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-6px)' },
+          '50%': { transform: 'translateY(-8px)' },
         }
       }
     },

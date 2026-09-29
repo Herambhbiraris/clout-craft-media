@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Sparkles, Phone, Mail, Instagram, Copy, Check, ArrowUpRight, MessageCircle, MapPin } from 'lucide-react';
+﻿import React, { useState } from 'react';
+import { Sparkles, Phone, Mail, Instagram, Copy, Check, ArrowUpRight, MessageCircle, MapPin, ArrowRight } from 'lucide-react';
 import { useRouter } from '../context/RouterContext';
 import logoImg from '../assets/logo.png';
+import vortexImg from '../assets/cosmic_vortex.png';
 
 interface FooterProps {
   onOpenAudit: () => void;
@@ -18,205 +19,188 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
   };
 
   return (
-    <footer className="border-t border-slate-200/90 bg-white">
+    <footer className="border-t border-purple-100 bg-[#0E071D] text-white">
       
-      {/* Pre-Footer Action Banner */}
-      <div className="bg-slate-950 text-white py-16 sm:py-20 border-b border-slate-800/80">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="brutal-tag bg-purple-950/80 text-purple-200 border-purple-800/60 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-            <span>LET'S TALK SCALE</span>
+      {/* 12. Final High-Impact Conversion CTA Banner */}
+      <div className="relative bg-[#160D2E] text-white py-20 sm:py-28 overflow-hidden border-b border-purple-500/20">
+        
+        {/* Cosmic vortex & volumetric purple light behind CTA */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[950px] opacity-25 pointer-events-none select-none">
+          <img 
+            src={vortexImg} 
+            alt="Cosmic Vortex" 
+            className="w-full h-auto object-contain animate-spin" 
+            style={{ animationDuration: '60s' }}
+          />
+        </div>
+
+        {/* Ambient violet aura */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-bright/10 to-transparent pointer-events-none" />
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          
+          <div className="inline-flex items-center gap-2 bg-white/10 text-purple-200 border border-purple-400/30 px-4 py-1.5 rounded-full text-xs font-mono font-bold mb-6 backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
+            <span>LET'S TALK SCALE &bull; Q2 PARTNER SPRINT</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4 leading-tight">
-            Ready to Build Your Brand's Next Chapter?
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-white mb-6 leading-[1.1]">
+            Ready to Build Your Brand's <br className="hidden sm:inline" />
+            <span className="text-violet-bright">Next High-ROAS Chapter?</span>
           </h2>
 
-          <p className="text-slate-300 text-base sm:text-lg max-w-xl mx-auto mb-8 font-medium">
-            Tell us about your current numbers and revenue bottlenecks — we will build your customized 48-hour growth tear-down and video hook architecture.
+          <p className="text-slate-300 text-base sm:text-lg max-w-xl mx-auto mb-10 font-medium leading-relaxed">
+            Tell us about your current bottlenecks and growth goals. We will build your customized 48-hour growth tear-down and video hook architecture — 100% free with zero sales fluff.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={onOpenAudit}
-              className="brutal-btn-primary w-full sm:w-auto py-4 px-8 text-base bg-white text-slate-900 border-slate-200 shadow-lg hover:bg-slate-50 font-bold"
-              style={{ background: '#FFFFFF', color: '#0F172A' }}
+              className="w-full sm:w-auto py-4 px-8 rounded-full bg-white text-ink hover:bg-lavender-light text-base font-bold flex items-center justify-center gap-2.5 shadow-lg shadow-purple-950/40 transition-all hover:scale-105 group"
             >
-              <Sparkles className="w-4 h-4 text-purple-600" />
+              <Sparkles className="w-4 h-4 text-violet-bright group-hover:rotate-12 transition-transform" />
               <span>Claim Free 48-Hour Growth Audit</span>
-              <ArrowUpRight className="w-4 h-4 text-slate-900" />
+              <ArrowRight className="w-4 h-4 text-ink group-hover:translate-x-1 transition-transform" />
             </button>
 
             <a
               href="tel:+917276998119"
-              className="brutal-btn-secondary w-full sm:w-auto py-4 px-8 text-base bg-white/5 text-white border-white/20 shadow-md hover:bg-white/10 font-bold"
-              style={{ background: 'rgba(255, 255, 255, 0.05)', color: '#FFFFFF', borderColor: 'rgba(255, 255, 255, 0.2)' }}
+              className="w-full sm:w-auto py-4 px-8 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/20 text-base font-bold flex items-center justify-center gap-2.5 transition-all"
             >
               <Phone className="w-4 h-4 text-emerald-400" />
               <span>Call +91 72769 98119</span>
             </a>
           </div>
 
-          <div className="mt-6 flex items-center justify-center gap-2 font-mono text-xs text-slate-400 font-semibold">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-            <span>Accepting 2 Partner Brands for Q2/Q3 2026</span>
+          <div className="mt-8 flex items-center justify-center gap-2 font-mono text-xs text-purple-300 font-semibold">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Strict 5-to-7 Client Cap &bull; Accepting 2 Partner Brands for Q2/Q3</span>
           </div>
+
         </div>
       </div>
 
-      {/* Main Footer Links & Info */}
-      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+      {/* 13. Minimalist Premium Dark Footer */}
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
           
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="bg-slate-950 px-3.5 py-1.5 rounded-xl border border-slate-800 shadow-sm flex items-center">
+              <div className="bg-[#120826] px-4 py-2 rounded-2xl border border-purple-500/40 shadow-sm flex items-center">
                 <img 
                   src={logoImg} 
                   alt="CloutCraft Media" 
                   className="h-6 w-auto object-contain" 
                 />
               </div>
-              <span className="font-display font-black text-base text-slate-900">
+              <span className="font-display font-black text-base tracking-wide text-white">
                 CLOUTCRAFT MEDIA
               </span>
             </div>
 
-            <p className="text-xs sm:text-sm text-ink max-w-sm font-medium leading-relaxed">
-              Founder-led growth studio for startups, creators, and ambitious brands. Turning fleeting attention into predictable, compounding cashflow.
+            <p className="text-xs sm:text-sm text-slate-400 max-w-sm font-medium leading-relaxed">
+              Founder-led growth studio for startups, creators, and ambitious challenger brands. Turning fleeting attention into compounding, predictable revenue.
             </p>
 
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-ink">
-              <MapPin className="w-3.5 h-3.5 text-brand" />
-              <span>Nashik, Maharashtra, India &bull; Serving Global Brands</span>
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-slate-300">
+              <MapPin className="w-3.5 h-3.5 text-violet-bright" />
+              <span>Headquartered in Nashik, Maharashtra &bull; Serving Global Brands</span>
             </div>
           </div>
 
           {/* Quick Nav Columns */}
-          <div className="md:col-span-3 space-y-2">
-            <h4 className="font-mono text-xs uppercase font-black text-brand tracking-wider mb-3">
-              EXPLORE PAGES
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="font-mono text-xs uppercase font-black text-purple-300 tracking-wider mb-2">
+              NAVIGATION
             </h4>
-            <ul className="space-y-2 text-xs font-bold text-ink">
+            <ul className="space-y-2 text-xs sm:text-sm font-medium text-slate-300">
               <li>
-                <button onClick={() => navigate('/')} className="hover:text-brand transition-colors text-left">
-                  Home Overview
+                <button onClick={() => navigate('/')} className="hover:text-white transition-colors">
+                  Home
                 </button>
               </li>
               <li>
-                <button onClick={() => navigate('/services')} className="hover:text-brand transition-colors text-left">
-                  Six Growth Crafts &amp; Deliverables
+                <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">
+                  Services &amp; Crafts
                 </button>
               </li>
               <li>
-                <button onClick={() => navigate('/case-studies')} className="hover:text-brand transition-colors text-left flex items-center gap-1.5">
-                  <span>The Viral Vault (Case Studies)</span>
-                  <span className="bg-brand text-white text-[9px] font-mono px-1 rounded font-bold">28M+</span>
+                <button onClick={() => navigate('/case-studies')} className="hover:text-white transition-colors">
+                  Case Studies &bull; The Vault
                 </button>
               </li>
               <li>
-                <button onClick={() => navigate('/calculator')} className="hover:text-brand transition-colors text-left">
-                  Interactive ROI &amp; Growth Suite
+                <button onClick={() => navigate('/calculator')} className="hover:text-white transition-colors">
+                  Interactive ROI Calculator
                 </button>
               </li>
               <li>
-                <button onClick={() => navigate('/about')} className="hover:text-brand transition-colors text-left">
-                  About CloutCraft &amp; Founder
+                <button onClick={() => navigate('/about')} className="hover:text-white transition-colors">
+                  About &bull; Founder Manifesto
                 </button>
               </li>
               <li>
-                <button onClick={() => navigate('/contact')} className="hover:text-brand transition-colors text-left">
-                  Contact &amp; Book Strategy Call
+                <button onClick={() => navigate('/contact')} className="hover:text-white transition-colors">
+                  Contact Studio Desk
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Direct Communication Column */}
+          {/* Direct Communication Desk */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="font-mono text-xs uppercase font-black text-brand tracking-wider mb-3">
-              REACH US DIRECTLY
+            <h4 className="font-mono text-xs uppercase font-black text-purple-300 tracking-wider mb-2">
+              FOUNDER CONTACT DESK
             </h4>
+            <p className="text-xs text-slate-400 font-medium">
+              Direct founder access with sub-2-hour response times during standard business hours.
+            </p>
 
-            {/* Email Pill with Copy */}
-            <div className="flex items-center justify-between bg-bg border-2 border-line rounded-lg px-3.5 py-2.5 shadow-brutal-sm">
+            <div className="space-y-2 pt-1">
               <a 
-                href="mailto:collab@cloutcraftmedia.com"
-                className="text-xs font-mono font-bold text-ink hover:text-brand truncate"
-              >
-                collab@cloutcraftmedia.com
-              </a>
-              <button
-                onClick={handleCopyEmail}
-                className="w-7 h-7 rounded bg-panel-dark text-white flex items-center justify-center hover:bg-brand transition-colors shrink-0 ml-2"
-                title="Copy email to clipboard"
-                aria-label="Copy Email"
-              >
-                {copied ? <Check className="w-3.5 h-3.5 text-accent-mint" /> : <Copy className="w-3.5 h-3.5" />}
-              </button>
-            </div>
-
-            {/* Phone Pill */}
-            <div className="flex items-center justify-between bg-bg border-2 border-line rounded-lg px-3.5 py-2.5 shadow-brutal-sm">
-              <a 
-                href="tel:+917276998119"
-                className="text-xs font-mono font-bold text-ink hover:text-brand"
-              >
-                +91 72769 98119
-              </a>
-              <Phone className="w-4 h-4 text-brand shrink-0" />
-            </div>
-
-            {/* Social Links Row */}
-            <div className="flex items-center gap-2 pt-2">
-              <a
-                href="https://www.instagram.com/clout.craft.media/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg border-2 border-line bg-white flex items-center justify-center hover:bg-panel-1 transition-transform hover:-translate-y-0.5 shadow-brutal-sm"
-                aria-label="Instagram @clout.craft.media"
-              >
-                <Instagram className="w-4 h-4 text-ink" />
-              </a>
-
-              <a
                 href="https://wa.me/917276998119"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg border-2 border-line bg-[#25D366] text-white flex items-center justify-center transition-transform hover:-translate-y-0.5 shadow-brutal-sm"
-                aria-label="WhatsApp Direct"
+                className="flex items-center gap-2 text-xs sm:text-sm text-emerald-400 font-semibold hover:text-emerald-300 transition-colors"
               >
-                <MessageCircle className="w-4 h-4 fill-white" />
+                <MessageCircle className="w-4 h-4" />
+                <span>+91 72769 98119 (WhatsApp Direct)</span>
               </a>
+
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
+                <Mail className="w-4 h-4 text-purple-400" />
+                <span>collab@cloutcraftmedia.com</span>
+                <button
+                  onClick={handleCopyEmail}
+                  className="p-1 rounded bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors ml-1"
+                  title="Copy Email"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                </button>
+              </div>
+            </div>
+
+            <div className="pt-3">
+              <button
+                onClick={onOpenAudit}
+                className="text-xs font-mono font-bold text-violet-bright hover:text-purple-200 flex items-center gap-1 transition-colors"
+              >
+                <span>Request Free 48-Hour Growth Audit</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </button>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Copyright */}
-        <div className="mt-12 pt-6 border-t-2 border-line/20 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-ink font-semibold">
-          <div>
-            &copy; {new Date().getFullYear()} CloutCraft Media. All rights reserved.
-          </div>
-          <div className="flex items-center gap-4 flex-wrap justify-center sm:justify-end">
-            <button onClick={() => navigate('/services')} className="hover:text-brand">Services</button>
-            <span>&bull;</span>
-            <button onClick={() => navigate('/case-studies')} className="hover:text-brand">Viral Vault</button>
-            <span>&bull;</span>
-            <button onClick={() => navigate('/calculator')} className="hover:text-brand">ROI Suite</button>
-            <span>&bull;</span>
-            <button onClick={() => navigate('/about')} className="hover:text-brand">About</button>
-            <span>&bull;</span>
-            <button onClick={() => navigate('/contact')} className="hover:text-brand">Contact</button>
-            <span>&bull;</span>
-            <button 
-              onClick={() => navigate('/admin')} 
-              className="text-brand hover:underline font-bold flex items-center gap-1"
-              title="Founder Admin Portal"
-            >
-              <span>🔒 Admin Desk</span>
-            </button>
+        {/* Bottom Copyright & Legal */}
+        <div className="pt-12 mt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+          <p>
+            &copy; {new Date().getFullYear()} CloutCraft Media. All rights reserved. Founder-led growth studio.
+          </p>
+          <div className="flex items-center gap-4">
+            <span className="text-purple-400/80 font-bold">100% Client Asset Ownership Guaranteed</span>
           </div>
         </div>
 

@@ -1,6 +1,7 @@
-import React from 'react';
+﻿import React from 'react';
 import { ShieldCheck, Sparkles, HeartHandshake, Zap, Target, ArrowRight, Award, Users, MapPin, CheckCircle2 } from 'lucide-react';
 import { useRouter } from '../context/RouterContext';
+import studioImg from '../assets/founder_3d_studio.jpg';
 
 interface AboutPageProps {
   onOpenAudit: () => void;
@@ -33,13 +34,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenAudit }) => {
   ];
 
   return (
-    <div className="py-12 sm:py-16">
+    <div className="py-12 sm:py-20">
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <div className="brutal-tag bg-panel-1 mb-4">
-            <HeartHandshake className="w-3.5 h-3.5 text-brand" />
+          <div className="brutal-tag bg-lavender-light text-brand border border-purple-200 mb-4">
+            <HeartHandshake className="w-3.5 h-3.5 text-violet-bright" />
             <span>THE FOUNDER MANIFESTO</span>
           </div>
           
@@ -47,26 +48,26 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenAudit }) => {
             The Anti-Agency Growth Studio.
           </h1>
 
-          <p className="text-lg text-ink font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-ink-muted font-medium max-w-2xl mx-auto leading-relaxed">
             We built CloutCraft Media because we were tired of seeing ambitious founders pay hefty agency retainers only to get ignored by junior coordinators.
           </p>
         </div>
 
         {/* The Origin Story Bento */}
-        <div className="brutal-card p-6 sm:p-10 bg-white mb-16 border-2 border-line shadow-brutal-lg">
+        <div className="brutal-card p-6 sm:p-10 bg-white mb-16 border border-purple-100/90 shadow-agency-hover rounded-agency-xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div className="lg:col-span-7 space-y-4">
-              <span className="font-mono text-xs font-bold text-brand uppercase tracking-wider block">
+            <div className="lg:col-span-7 space-y-5">
+              <span className="font-mono text-xs font-bold text-violet-bright uppercase tracking-wider block">
                 WHY WE EXIST
               </span>
               <h2 className="text-2xl sm:text-4xl font-black font-display text-ink leading-tight">
                 Attention is the new currency. But attention without conversion is useless.
               </h2>
               
-              <div className="space-y-3 text-sm sm:text-base text-ink leading-relaxed font-medium">
+              <div className="space-y-3.5 text-xs sm:text-sm text-ink-muted leading-relaxed font-medium">
                 <p>
-                  In today's algorithmic landscape, consumers scroll past thousands of posts every single day. If your video hook doesn't arrest attention in the first 2.4 seconds, you don't exist.
+                  In today's algorithmic landscape, consumers scroll past thousands of posts every single day. If your video hook doesn't arrest attention in the first 2.4 seconds, your brand doesn't exist.
                 </p>
                 <p>
                   Yet traditional advertising agencies are still operating like it’s 2012 — holding two-week alignment meetings, charging astronomical overhead fees, and treating short-form viral video like an afterthought.
@@ -77,55 +78,55 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenAudit }) => {
               </div>
 
               <div className="pt-2 flex items-center gap-2 text-xs font-mono font-bold text-ink">
-                <MapPin className="w-4 h-4 text-brand" />
+                <MapPin className="w-4 h-4 text-violet-bright" />
                 <span>Headquartered in Nashik, Maharashtra &bull; Partnering with Brands Globally</span>
               </div>
             </div>
 
-            {/* Founder Spotlight Card */}
+            {/* Founder Spotlight Card (Obsidian Panel) */}
             <div 
-              className="lg:col-span-5 bg-panel-dark text-white p-6 sm:p-8 rounded-2xl border-2 border-line shadow-brutal flex flex-col justify-between group"
-              style={{ backgroundColor: '#241447', color: '#FFFFFF' }}
+              className="lg:col-span-5 bg-purple-dark text-white p-6 sm:p-8 rounded-2xl border border-purple-500/30 shadow-agency-dark flex flex-col justify-between"
+              style={{ backgroundColor: '#160D2E' }}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-[10px] uppercase font-bold text-purple-200 bg-white/10 px-2.5 py-1 rounded">
+                  <span className="font-mono text-[10px] uppercase font-bold text-purple-200 bg-white/10 px-3 py-1 rounded-full">
                     FOUNDER-LED ETHOS
                   </span>
-                  <span className="w-2.5 h-2.5 rounded-full bg-accent-mint animate-ping" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
                 </div>
 
-                <div className="bg-white/10 border border-white/20 p-4 rounded-xl mb-5">
-                  <span className="text-[10px] font-mono uppercase text-accent-mint font-bold block mb-1">
-                    OPERATING PRINCIPLE
+                <div className="bg-white/10 border border-white/15 p-4 rounded-xl mb-6">
+                  <span className="text-[10px] font-mono uppercase text-emerald-400 font-bold block mb-1">
+                    OUR CORE PROMISE
                   </span>
-                  <p className="text-xs text-white/95 leading-relaxed font-medium">
-                    "I personally architect the hook scripts, ad creative strategy, and distribution funnels for all our active partner brands."
+                  <p className="text-xs sm:text-sm text-white/95 leading-relaxed font-medium">
+                    "We don't hand your brand to an account manager. I personally architect the hook scripts, ad creative strategy, and distribution funnels for all our active partner brands."
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-12 h-12 rounded-xl bg-panel-1 text-panel-dark flex items-center justify-center font-display font-black text-xl border-2 border-line shadow-brutal-white shrink-0">
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-violet-bright text-white flex items-center justify-center font-display font-black text-xl border border-purple-400/40 shadow-sm shrink-0">
                     HB
                   </div>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-black font-display text-white">
                       Herambh Biraris
                     </h3>
-                    <p className="font-mono text-xs text-purple-200 font-bold">
+                    <p className="font-mono text-xs text-purple-300 font-bold">
                       Founder &amp; Chief Growth Strategist
                     </p>
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-white/95 leading-relaxed mb-6 italic font-medium">
-                  "When a founder entrusts us with their brand, they aren't buying billable hours — they are buying speed, market positioning, and revenue. My promise is simple: you work directly with the person who actually cares about the outcome."
+                <p className="text-xs text-slate-300 leading-relaxed mb-6 italic font-medium">
+                  "When a founder entrusts us with their brand, they aren't buying billable hours — they are buying speed, market positioning, and revenue. You work directly with the person who actually cares about the outcome."
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-mono text-purple-200 font-bold">
+              <div className="pt-4 border-t border-white/15 flex items-center justify-between text-xs font-mono text-purple-200 font-bold">
                 <span>Direct 1-on-1 Weekly Syncs</span>
-                <span className="text-accent-mint font-black">✓ Guaranteed</span>
+                <span className="text-emerald-400 font-black">✓ Guaranteed</span>
               </div>
             </div>
 
@@ -135,7 +136,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenAudit }) => {
         {/* 4 Guiding Studio Principles */}
         <div className="mb-16">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="font-mono text-xs uppercase font-bold text-brand block mb-1">
+            <span className="font-mono text-xs uppercase font-bold text-violet-bright block mb-1">
               OUR PLAYBOOK
             </span>
             <h3 className="text-2xl sm:text-4xl font-black font-display text-ink">
@@ -147,20 +148,20 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenAudit }) => {
             {principles.map((p, idx) => (
               <div
                 key={idx}
-                className="brutal-card p-6 bg-white flex flex-col justify-between"
+                className="brutal-card p-6 bg-white border border-purple-100/90 shadow-agency hover:shadow-agency-hover flex flex-col justify-between"
               >
                 <div>
-                  <span className="font-mono text-sm font-black bg-panel-1 text-ink w-8 h-8 rounded-lg border border-line flex items-center justify-center mb-3">
+                  <span className="font-mono text-xs font-black bg-purple-dark text-white w-8 h-8 rounded-full flex items-center justify-center mb-3">
                     {p.num}
                   </span>
                   <h4 className="font-display font-bold text-lg text-ink mb-2">
                     {p.title}
                   </h4>
-                  <p className="text-xs sm:text-sm text-ink font-medium leading-relaxed">
+                  <p className="text-xs sm:text-sm text-ink-muted font-medium leading-relaxed">
                     {p.desc}
                   </p>
                 </div>
-                <div className="pt-3 border-t-2 border-line mt-4 flex items-center gap-1 text-xs font-mono text-brand font-bold">
+                <div className="pt-3 border-t border-purple-100 mt-4 flex items-center gap-1.5 text-xs font-mono text-violet-bright font-bold">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>Non-Negotiable</span>
                 </div>
@@ -169,27 +170,27 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenAudit }) => {
           </div>
         </div>
 
-        {/* Studio Stack */}
-        <div className="brutal-card p-6 sm:p-8 bg-panel-1 border-line flex flex-col sm:flex-row items-center justify-between gap-6">
+        {/* Audit CTA banner */}
+        <div className="brutal-card p-6 sm:p-10 bg-lavender-light/80 border border-purple-200/80 shadow-agency flex flex-col sm:flex-row items-center justify-between gap-6 rounded-agency-xl">
           <div>
-            <span className="font-mono text-xs uppercase font-bold text-brand block">
+            <span className="font-mono text-xs uppercase font-bold text-violet-bright block">
               READY TO SCALE WITH US?
             </span>
             <h4 className="text-xl sm:text-2xl font-black font-display text-ink mt-0.5">
               Let's Audit Your Brand's Current Hook Architecture
             </h4>
-            <p className="text-xs sm:text-sm text-ink font-medium mt-1 max-w-xl">
+            <p className="text-xs sm:text-sm text-ink-muted font-medium mt-1 max-w-xl">
               100% free 48-hour tear-down. We dissect your retention drop-off, competitor angles, and ad CAC with zero sales fluff.
             </p>
           </div>
 
           <button
             onClick={onOpenAudit}
-            className="brutal-btn-primary shrink-0 py-3.5 px-6 shadow-brutal text-sm"
+            className="brutal-btn-primary shrink-0 py-3.5 px-7 shadow-agency text-sm font-bold gap-2"
           >
             <Sparkles className="w-4 h-4 text-amber-300" />
             <span>Book Founder Strategy Session</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-purple-300" />
           </button>
         </div>
 

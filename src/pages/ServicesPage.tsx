@@ -65,16 +65,16 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenAudit }) => {
         
         {/* Page Hero Header */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <div className="brutal-tag bg-panel-1 mb-4">
-            <Layers className="w-3.5 h-3.5 text-brand" />
+          <div className="brutal-tag bg-lavender-light text-violet-bright border border-purple-200/80 mb-4 shadow-sm">
+            <Layers className="w-3.5 h-3.5 text-violet-bright" />
             <span>GROWTH DISCIPLINES &bull; FOUNDER-LED</span>
           </div>
           
           <h1 className="text-4xl sm:text-6xl font-black font-display text-ink tracking-tight mb-4">
-            Six Crafts. <span className="bg-panel-dark text-paper px-3 py-1 rounded-xl border-2 border-line inline-block shadow-brutal -rotate-1">One Growth Engine.</span>
+            Six Crafts. <span className="bg-purple-dark text-white px-4 py-1 rounded-2xl border border-purple-800/40 inline-block shadow-agency -rotate-1">One Growth Engine.</span>
           </h1>
 
-          <p className="text-lg text-ink font-semibold max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-ink-muted font-medium max-w-2xl mx-auto leading-relaxed">
             We don’t offer 50 bloated services. We specialize strictly in the six growth disciplines that directly control attention, brand perception, and scalable revenue.
           </p>
         </div>
@@ -85,16 +85,16 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenAudit }) => {
             <button
               key={service.id}
               onClick={() => setSelectedServiceId(service.id)}
-              className={`p-3 rounded-xl border-2 border-line font-mono text-xs font-bold transition-all text-left flex flex-col justify-between ${
+              className={`p-3.5 rounded-2xl border font-mono text-xs font-bold transition-all text-left flex flex-col justify-between ${
                 selectedServiceId === service.id
-                  ? 'bg-panel-dark text-paper shadow-brutal-sm -translate-y-1'
-                  : 'bg-paper text-ink hover:bg-panel-1'
+                  ? 'bg-purple-dark text-white border-purple-800/60 shadow-agency -translate-y-0.5'
+                  : 'bg-white text-ink border-purple-100 hover:bg-lavender-light'
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className={`text-[10px] font-bold ${selectedServiceId === service.id ? 'text-purple-200' : 'text-ink/80'}`}>{service.number}</span>
+                <span className={`text-[10px] font-bold ${selectedServiceId === service.id ? 'text-purple-200' : 'text-violet-bright'}`}>{service.number}</span>
                 {selectedServiceId === service.id && (
-                  <span className="w-2 h-2 rounded-full bg-accent-emerald animate-ping" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                 )}
               </div>
               <span className="truncate block font-sans font-bold text-xs">{service.title}</span>
@@ -103,35 +103,35 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenAudit }) => {
         </div>
 
         {/* Deep Dive Bento Panel for Active Service */}
-        <div className="brutal-card p-6 sm:p-10 bg-paper border-2 border-line shadow-brutal-lg mb-16">
+        <div className="brutal-card p-6 sm:p-10 lg:p-12 bg-white border border-purple-100/90 shadow-agency rounded-agency mb-16 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Left 7 Columns: Strategy & Deliverables */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="font-mono text-xs font-black bg-panel-dark text-paper px-3 py-1 rounded-md border border-line">
+                <span className="font-mono text-xs font-black bg-purple-dark text-white px-3.5 py-1.5 rounded-full">
                   CRAFT {activeService.number}
                 </span>
-                <span className="font-mono text-xs font-bold bg-panel-1 px-3 py-1 rounded-md border border-line">
+                <span className="font-mono text-xs font-bold bg-lavender-light text-violet-bright px-3.5 py-1.5 rounded-full border border-purple-200/60">
                   {activeService.tag}
                 </span>
-                <span className="font-mono text-xs font-bold text-accent-emerald bg-emerald-100 px-3 py-1 rounded-md border border-emerald-300">
+                <span className="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200/80">
                   {activeService.metrics}
                 </span>
               </div>
 
               <div>
-                <h2 className="text-3xl sm:text-4xl font-black font-display text-ink mb-1">
+                <h2 className="text-3xl sm:text-4xl font-black font-display text-ink mb-1 tracking-tight">
                   {activeService.title}
                 </h2>
-                <p className="font-mono text-sm font-bold text-brand">
+                <p className="font-mono text-sm font-bold text-violet-bright">
                   {activeService.tagline}
                 </p>
               </div>
 
               {/* The Playbook Thesis */}
-              <div className="bg-bg/90 border-2 border-line p-5 rounded-xl shadow-inner">
-                <span className="text-[10px] font-mono uppercase font-bold text-panel-dark block mb-1">
+              <div className="bg-lavender-light/70 border border-purple-100 p-5 rounded-2xl">
+                <span className="text-[10px] font-mono uppercase font-bold text-purple-dark block mb-1 tracking-wider">
                   THE CLOUTCRAFT STRATEGIC THESIS:
                 </span>
                 <p className="text-sm sm:text-base font-medium text-ink leading-relaxed">
@@ -146,8 +146,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenAudit }) => {
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {activeService.deliverables.map((item, idx) => (
-                    <div key={idx} className="bg-paper border-2 border-line p-3 rounded-lg flex items-start gap-2 shadow-brutal-sm">
-                      <CheckCircle2 className="w-4 h-4 text-brand mt-0.5 shrink-0" />
+                    <div key={idx} className="bg-white border border-purple-100/90 p-3 rounded-xl flex items-start gap-2.5 shadow-sm">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
                       <span className="text-xs font-semibold text-ink leading-snug">{item}</span>
                     </div>
                   ))}
@@ -156,23 +156,23 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenAudit }) => {
             </div>
 
             {/* Right 5 Columns: Spec Sheet & Scoping */}
-            <div className="lg:col-span-5 bg-panel-1/70 border-2 border-line p-6 rounded-2xl space-y-5">
-              <div className="flex items-center justify-between pb-3 border-b-2 border-line/20">
+            <div className="lg:col-span-5 bg-lavender-light/50 border border-purple-100/90 p-6 sm:p-8 rounded-2xl space-y-5">
+              <div className="flex items-center justify-between pb-3 border-b border-purple-200/60">
                 <span className="font-mono text-xs font-bold uppercase text-ink">
                   SPRINT SPECIFICATIONS
                 </span>
-                <span className="text-xs font-mono bg-paper px-2 py-0.5 rounded border border-line font-bold">
+                <span className="text-xs font-mono bg-white px-3 py-1 rounded-full border border-purple-100 font-bold text-violet-bright">
                   FOUNDER SUPERVISED
                 </span>
               </div>
 
               {/* Discipline Sprint Profile */}
-              <div className="bg-panel-dark text-white p-5 rounded-xl border-2 border-line shadow-brutal-sm">
+              <div className="bg-purple-dark text-white p-6 rounded-2xl border border-purple-800/40 shadow-agency-dark">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-xs font-bold text-accent-mint uppercase tracking-wider">
+                  <span className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">
                     {activeService.tag}
                   </span>
-                  <span className="font-mono text-xs text-purple-200 font-bold bg-white/10 px-2 py-0.5 rounded">
+                  <span className="font-mono text-xs text-purple-200 font-bold bg-white/10 px-2.5 py-0.5 rounded-full">
                     {activeService.number}
                   </span>
                 </div>
@@ -186,32 +186,32 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenAudit }) => {
 
               {/* Who it's for */}
               <div>
-                <span className="text-[10px] font-mono uppercase font-bold text-ink block mb-1">
+                <span className="text-[10px] font-mono uppercase font-bold text-ink-muted block mb-1">
                   IDEAL FOR:
                 </span>
-                <p className="text-xs font-bold text-ink bg-paper p-3 rounded-lg border border-line">
+                <p className="text-xs font-bold text-ink bg-white p-3.5 rounded-xl border border-purple-100">
                   {activePlaybook?.whoFor}
                 </p>
               </div>
 
               {/* Cadence & Turnaround */}
               <div>
-                <span className="text-[10px] font-mono uppercase font-bold text-ink block mb-1">
+                <span className="text-[10px] font-mono uppercase font-bold text-ink-muted block mb-1">
                   VELOCITY & TURNAROUND:
                 </span>
-                <p className="text-xs font-mono font-bold text-panel-dark bg-paper p-3 rounded-lg border border-line">
+                <p className="text-xs font-mono font-bold text-purple-dark bg-white p-3.5 rounded-xl border border-purple-100">
                   ⚡ {activePlaybook?.timeline}
                 </p>
               </div>
 
               {/* Production Stack */}
               <div>
-                <span className="text-[10px] font-mono uppercase font-bold text-ink block mb-1.5">
+                <span className="text-[10px] font-mono uppercase font-bold text-ink-muted block mb-1.5">
                   TOOLING & TECH STACK:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {activePlaybook?.techStack.map((tool, idx) => (
-                    <span key={idx} className="text-[10px] font-mono font-bold bg-paper text-ink px-2 py-1 rounded border border-line shadow-brutal-sm">
+                    <span key={idx} className="text-[10px] font-mono font-bold bg-white text-ink px-2.5 py-1 rounded-lg border border-purple-100 shadow-sm">
                       {tool}
                     </span>
                   ))}
@@ -222,13 +222,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenAudit }) => {
               <div className="pt-3">
                 <button
                   onClick={() => onOpenAudit(`Service Deep Dive: ${activeService.title}`)}
-                  className="brutal-btn-primary w-full py-3.5 text-sm justify-center shadow-brutal gap-2"
+                  className="brutal-btn-primary w-full py-4 text-sm justify-center shadow-glow-violet gap-2 bg-violet-bright hover:bg-violet-dark text-white rounded-full font-bold"
                 >
                   <Sparkles className="w-4 h-4 text-amber-300" />
                   <span>Scope This Craft for Your Brand</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                <p className="text-[11px] font-mono text-ink font-bold text-center mt-2">
+                <p className="text-[11px] font-mono text-ink-muted font-bold text-center mt-2.5">
                   ✓ Free 48-Hour Strategic Tear-down Included
                 </p>
               </div>
@@ -241,10 +241,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenAudit }) => {
         {/* All 6 Crafts Grid Overview */}
         <div className="mb-16">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="font-mono text-xs uppercase font-bold text-brand block mb-1">
+            <span className="font-mono text-xs uppercase font-bold text-violet-bright block mb-1">
               THE FULL MENU
             </span>
-            <h3 className="text-2xl sm:text-3xl font-black font-display text-ink">
+            <h3 className="text-2xl sm:text-4xl font-black font-display text-ink tracking-tight">
               Compare All 6 Growth Disciplines
             </h3>
           </div>
@@ -254,19 +254,19 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenAudit }) => {
               <div
                 key={s.id}
                 onClick={() => setSelectedServiceId(s.id)}
-                className="brutal-card p-6 bg-paper cursor-pointer hover:bg-panel-1/40 transition-all flex flex-col justify-between"
+                className="brutal-card p-6 bg-white border border-purple-100 rounded-agency cursor-pointer hover:shadow-agency hover:-translate-y-1 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-xs font-bold text-ink bg-bg px-2 py-0.5 rounded border border-line">
+                    <span className="font-mono text-xs font-bold text-violet-bright bg-lavender-light px-2.5 py-1 rounded-full border border-purple-200/60">
                       {s.number}
                     </span>
-                    <span className="text-[10px] font-mono font-bold text-brand">{s.tag}</span>
+                    <span className="text-[10px] font-mono font-bold text-purple-dark">{s.tag}</span>
                   </div>
                   <h4 className="font-display font-bold text-lg text-ink mb-1">{s.title}</h4>
-                  <p className="text-xs text-ink font-medium leading-relaxed mb-4">{s.description}</p>
+                  <p className="text-xs text-ink-muted font-medium leading-relaxed mb-4">{s.description}</p>
                 </div>
-                <div className="pt-3 border-t-2 border-line flex items-center justify-between text-xs font-mono font-bold text-panel-dark">
+                <div className="pt-3 border-t border-purple-100 flex items-center justify-between text-xs font-mono font-bold text-violet-bright">
                   <span>{s.metrics}</span>
                   <ChevronRight className="w-4 h-4" />
                 </div>

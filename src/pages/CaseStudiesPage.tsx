@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
-import { Flame, TrendingUp, ArrowUpRight, Quote, Sparkles, Filter, CheckCircle2, Play, Users } from 'lucide-react';
+﻿import React, { useState } from 'react';
+import { Flame, ArrowRight, Quote, Sparkles, Filter, CheckCircle2, Play, Users, TrendingUp, Target } from 'lucide-react';
 import { CASE_STUDIES } from '../data/mockData';
 import { CaseStudy } from '../types';
+import phoneMockupImg from '../assets/3d_phone_mockup.png';
+import playCubeImg from '../assets/3d_play_cube.png';
+import funnelImg from '../assets/performance_3d_funnel.jpg';
+import studioImg from '../assets/founder_3d_studio.jpg';
+import clapperImg from '../assets/retention_3d_clapper.jpg';
+import vaultImg from '../assets/monetization_3d_vault.jpg';
 
 interface CaseStudiesPageProps {
   onOpenAudit: (context: string) => void;
@@ -62,66 +68,183 @@ export const CaseStudiesPage: React.FC<CaseStudiesPageProps> = ({ onOpenAudit })
     }
   ];
 
+  const featured = expandedStudies[0]; // ZenGlow Organics
+
   const filteredStudies = selectedCategory === 'All'
     ? expandedStudies
     : expandedStudies.filter(s => s.category === selectedCategory);
 
+  const getCaseImage = (id: string) => {
+    switch (id) {
+      case 'zenglow-d2c': return funnelImg;
+      case 'akash-fininsights': return studioImg;
+      case 'promptos-launch': return vaultImg;
+      case 'kultwear-streetwear': return clapperImg;
+      case 'nutrifuel-d2c': return funnelImg;
+      case 'techunbox-creator': return studioImg;
+      default: return funnelImg;
+    }
+  };
+
   return (
-    <div className="py-12 sm:py-16">
+    <div className="py-12 sm:py-20">
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         
         {/* Header */}
-        <div className="text-center max-w-4xl mx-auto mb-14">
-          <div className="brutal-tag bg-panel-dark text-white mb-4">
-            <Flame className="w-3.5 h-3.5 text-accent-coral" />
-            <span>THE VIRAL VAULT // CASE STUDIES ARCHIVE</span>
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="brutal-tag bg-lavender-light text-brand border border-purple-200 mb-4">
+            <Flame className="w-3.5 h-3.5 text-violet-bright" />
+            <span>THE VIRAL VAULT // VERIFIED EVIDENCE</span>
           </div>
           
           <h1 className="text-4xl sm:text-6xl font-black font-display text-ink tracking-tight mb-4">
-            Real Proof. <span className="bg-panel-1 px-3 py-1 rounded-xl border-2 border-line inline-block shadow-brutal rotate-1">Verified Returns.</span>
+            Proof Over Promises. <br />
+            <span className="text-violet-bright">Real Revenue Multipliers.</span>
           </h1>
 
-          <p className="text-lg text-ink font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-ink-muted font-medium max-w-2xl mx-auto leading-relaxed">
             Explore how our founder-led creative sprints and performance engines generate millions of views and compounding cashflow for partner brands.
           </p>
         </div>
 
-        {/* Aggregate Credibility Ribbon */}
-        <div className="brutal-card p-6 bg-white border-2 border-line shadow-brutal mb-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x-2 divide-line/20">
+        {/* Aggregate Stats Ribbon */}
+        <div className="brutal-card p-6 bg-white border border-purple-100 shadow-agency mb-14">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x divide-purple-100">
             <div>
-              <span className="font-mono text-xs uppercase font-bold text-ink block mb-1">Total Video Views</span>
-              <span className="text-2xl sm:text-3xl font-black font-display text-panel-dark">28.4M+</span>
+              <span className="font-mono text-xs uppercase font-bold text-ink-muted block mb-1">Total Video Views</span>
+              <span className="text-2xl sm:text-4xl font-black font-display text-ink">28.4M+</span>
             </div>
             <div>
-              <span className="font-mono text-xs uppercase font-bold text-ink block mb-1">Average Paid ROAS</span>
-              <span className="text-2xl sm:text-3xl font-black font-display text-accent-emerald">4.7x</span>
+              <span className="font-mono text-xs uppercase font-bold text-ink-muted block mb-1">Average Paid ROAS</span>
+              <span className="text-2xl sm:text-4xl font-black font-display text-emerald-600">4.7x</span>
             </div>
             <div>
-              <span className="font-mono text-xs uppercase font-bold text-ink block mb-1">B2B Demos Booked</span>
-              <span className="text-2xl sm:text-3xl font-black font-display text-brand">140+</span>
+              <span className="font-mono text-xs uppercase font-bold text-ink-muted block mb-1">Pipeline Generated</span>
+              <span className="text-2xl sm:text-4xl font-black font-display text-violet-bright">₹5.2 Cr+</span>
             </div>
             <div>
-              <span className="font-mono text-xs uppercase font-bold text-ink block mb-1">Client Retention</span>
-              <span className="text-2xl sm:text-3xl font-black font-display text-ink">98%</span>
+              <span className="font-mono text-xs uppercase font-bold text-ink-muted block mb-1">Founder Retention</span>
+              <span className="text-2xl sm:text-4xl font-black font-display text-ink">98% MoM</span>
             </div>
           </div>
         </div>
 
-        {/* Filter Controls */}
-        <div className="flex flex-wrap items-center gap-2 mb-10">
-          <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-ink mr-2">
-            <Filter className="w-3.5 h-3.5" />
-            <span>Filter Category:</span>
+        {/* FEATURED CASE STUDY: Hero Spotlight */}
+        <div className="mb-16">
+          <div className="flex items-center gap-2 mb-4 font-mono text-xs font-bold text-violet-bright uppercase tracking-wider">
+            <Sparkles className="w-4 h-4 text-amber-500" />
+            <span>SPOTLIGHT CASE STUDY</span>
           </div>
+
+          <div className="brutal-card p-6 sm:p-10 bg-white border border-purple-100 shadow-agency-hover rounded-agency-xl overflow-hidden relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left Column: Client / Problem / What We Did / Result */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="font-mono text-xs font-bold bg-lavender-light text-violet-bright px-3 py-1 rounded-full border border-purple-200">
+                    {featured.badge}
+                  </span>
+                  <span className="font-bold text-sm text-ink font-display">
+                    {featured.client}
+                  </span>
+                </div>
+
+                <h2 className="text-2xl sm:text-4xl font-black font-display text-ink leading-tight">
+                  {featured.title}
+                </h2>
+
+                {/* Structured Breakdown: Problem -> What We Did */}
+                <div className="space-y-3 pt-2">
+                  <div className="bg-lavender-light/50 p-4 rounded-xl border border-purple-100">
+                    <span className="text-[11px] font-mono uppercase font-bold text-rose-600 block mb-1">
+                      THE CHALLENGE &amp; BOTTLENECK:
+                    </span>
+                    <p className="text-xs sm:text-sm text-ink font-medium leading-relaxed">
+                      {featured.problem}
+                    </p>
+                  </div>
+
+                  <div className="bg-lavender-light/50 p-4 rounded-xl border border-purple-100">
+                    <span className="text-[11px] font-mono uppercase font-bold text-violet-bright block mb-1">
+                      WHAT WE ARCHITECTED:
+                    </span>
+                    <p className="text-xs sm:text-sm text-ink font-medium leading-relaxed">
+                      {featured.solution}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Verified Results Grid */}
+                <div>
+                  <span className="text-[11px] font-mono uppercase font-bold text-ink-muted block mb-2">
+                    VERIFIED OUTCOMES:
+                  </span>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    {featured.metrics.map((m, idx) => (
+                      <div key={idx} className="bg-white border border-purple-100 p-3 rounded-xl shadow-sm">
+                        <span className="text-[10px] font-mono text-ink-muted font-bold uppercase block truncate">{m.label}</span>
+                        <span className="text-xl font-black font-display text-ink mt-0.5 block">{m.value}</span>
+                        <span className="text-[10px] font-mono font-bold text-emerald-600">{m.change}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Visual Presentation & Testimonial */}
+              <div className="lg:col-span-5 bg-purple-dark text-white p-6 sm:p-8 rounded-2xl border border-purple-500/30 shadow-agency-dark flex flex-col justify-between" style={{ backgroundColor: '#160D2E' }}>
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[10px] uppercase font-bold text-purple-200 bg-white/10 px-3 py-1 rounded-full">
+                      VERIFIED RESULT
+                    </span>
+                    <span className="text-emerald-400 font-mono text-xs font-bold">
+                      {featured.growthMultiplier}
+                    </span>
+                  </div>
+
+                  <div className="relative mb-6 rounded-xl overflow-hidden border border-white/10 max-h-48">
+                    <img 
+                      src={funnelImg} 
+                      alt={featured.client}
+                      className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-500" 
+                    />
+                  </div>
+
+                  <Quote className="w-8 h-8 text-purple-400 mb-2 opacity-60" />
+                  <p className="text-xs sm:text-sm italic text-slate-200 leading-relaxed font-medium mb-4">
+                    "{featured.testimonial?.quote}"
+                  </p>
+                  <p className="text-xs font-bold text-white">
+                    {featured.testimonial?.author} &bull; <span className="text-purple-300 font-normal">{featured.testimonial?.role}</span>
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => onOpenAudit(`Case Study: ${featured.client}`)}
+                  className="mt-6 w-full py-3.5 rounded-full bg-white text-ink text-xs sm:text-sm font-bold flex items-center justify-center gap-2 hover:bg-lavender-light shadow-md transition-all"
+                >
+                  <Sparkles className="w-4 h-4 text-violet-bright" />
+                  <span>Request Similar Sprint for Your Brand</span>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        {/* Category Filter Pills */}
+        <div className="flex items-center justify-center gap-2 flex-wrap mb-10">
+          <Filter className="w-4 h-4 text-ink-muted mr-1" />
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-lg font-mono text-xs font-bold border-2 border-line transition-all ${
+              className={`text-xs font-mono font-bold px-4 py-2 rounded-full transition-all ${
                 selectedCategory === cat
-                  ? 'bg-panel-dark text-white shadow-brutal-sm -translate-y-0.5'
-                  : 'bg-white text-ink hover:bg-panel-1'
+                  ? 'bg-purple-dark text-white shadow-sm'
+                  : 'bg-white text-ink-muted hover:text-ink border border-purple-100 hover:bg-lavender-light'
               }`}
             >
               {cat}
@@ -129,107 +252,78 @@ export const CaseStudiesPage: React.FC<CaseStudiesPageProps> = ({ onOpenAudit })
           ))}
         </div>
 
-        {/* Case Studies Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {filteredStudies.map((study) => (
+        {/* Secondary Case Studies Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {filteredStudies.slice(1).map((study) => (
             <div
               key={study.id}
-              className="brutal-card p-6 sm:p-8 bg-white flex flex-col justify-between border-2 border-line shadow-brutal"
+              className="brutal-card p-6 sm:p-8 bg-white border border-purple-100/90 shadow-agency hover:shadow-agency-hover flex flex-col justify-between group"
             >
               <div>
-                {/* Header */}
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-bold bg-panel-1 text-ink px-2.5 py-1 rounded border border-line">
-                      {study.badge}
-                    </span>
-                    <span className="font-bold text-sm font-display text-ink">
-                      {study.client}
-                    </span>
+                {/* Image banner */}
+                <div className="h-44 sm:h-52 rounded-xl overflow-hidden mb-6 relative border border-purple-100">
+                  <img 
+                    src={getCaseImage(study.id)} 
+                    alt={study.client} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  <div className="absolute top-3 left-3 bg-purple-dark/90 backdrop-blur-md text-white font-mono text-[10px] font-bold px-3 py-1 rounded-full border border-white/20">
+                    {study.badge}
                   </div>
-
-                  <div className="bg-accent-emerald text-white font-mono text-xs font-black px-3 py-1 rounded-full border-2 border-line shadow-brutal-sm flex items-center gap-1">
-                    <TrendingUp className="w-3.5 h-3.5" />
-                    <span>{study.growthMultiplier}</span>
+                  <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md text-ink font-mono text-xs font-black px-3 py-1 rounded-full shadow-sm">
+                    {study.growthMultiplier}
                   </div>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold font-display text-ink leading-snug mb-5">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-bold text-sm text-ink-muted font-display">{study.client}</span>
+                  <span className="font-mono text-xs text-violet-bright font-bold">{study.category}</span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black font-display text-ink mb-3 group-hover:text-violet-bright transition-colors">
                   {study.title}
                 </h3>
 
-                {/* Problem vs Blueprint */}
-                <div className="space-y-3 mb-6 bg-bg border-2 border-line p-4 rounded-xl">
-                  <div>
-                    <span className="text-[10px] font-mono uppercase font-black text-accent-coral block">
-                      THE INITIAL BOTTLENECK:
-                    </span>
-                    <p className="text-xs sm:text-sm text-ink font-medium mt-0.5 leading-relaxed">
-                      {study.problem}
-                    </p>
-                  </div>
-                  <div className="pt-2 border-t border-line/20">
-                    <span className="text-[10px] font-mono uppercase font-black text-brand block">
-                      THE CLOUTCRAFT STRATEGY:
-                    </span>
-                    <p className="text-xs sm:text-sm text-ink font-bold mt-0.5 leading-relaxed">
-                      {study.solution}
-                    </p>
-                  </div>
+                {/* Problem -> What We Did */}
+                <div className="space-y-2 mb-5">
+                  <p className="text-xs text-ink-muted leading-relaxed">
+                    <strong className="text-ink font-bold">Bottleneck:</strong> {study.problem}
+                  </p>
+                  <p className="text-xs text-ink-muted leading-relaxed">
+                    <strong className="text-violet-bright font-bold">Execution:</strong> {study.solution}
+                  </p>
                 </div>
 
-                {/* Quantitative Metric Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-                  {study.metrics.map((metric, idx) => (
-                    <div key={idx} className="bg-white border-2 border-line rounded-lg p-2.5 shadow-brutal-sm">
-                      <span className="text-[10px] font-mono text-ink font-bold uppercase block truncate">
-                        {metric.label}
-                      </span>
-                      <div className="text-lg sm:text-xl font-black font-display text-panel-dark mt-0.5">
-                        {metric.value}
-                      </div>
-                      {metric.change && (
-                        <span className="text-[10px] font-mono font-black text-accent-emerald block">
-                          {metric.change}
-                        </span>
-                      )}
+                {/* 4 Mini Result Pills */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+                  {study.metrics.map((m, idx) => (
+                    <div key={idx} className="bg-lavender-light/60 border border-purple-100/80 p-2.5 rounded-lg text-center">
+                      <span className="text-[9px] font-mono text-ink-muted uppercase block truncate font-bold">{m.label}</span>
+                      <span className="text-base font-black font-display text-ink block">{m.value}</span>
                     </div>
-                  ))}
-                </div>
-
-                {/* Testimonial Quote */}
-                {study.testimonial && (
-                  <div className="bg-panel-1 border border-line p-4 rounded-xl mb-6 relative">
-                    <Quote className="w-5 h-5 text-brand absolute top-2 right-2 opacity-40" />
-                    <p className="text-xs sm:text-sm italic text-ink font-semibold mb-2 leading-relaxed">
-                      "{study.testimonial.quote}"
-                    </p>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2.5 h-2.5 rounded-full bg-panel-dark" />
-                      <span className="text-xs font-bold text-ink">{study.testimonial.author}</span>
-                      <span className="text-xs text-ink font-mono font-bold">&bull; {study.testimonial.role}</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {study.tags.map((tag, idx) => (
-                    <span key={idx} className="text-[10px] font-mono font-bold bg-bg text-ink px-2.5 py-0.5 rounded border border-line">
-                      #{tag}
-                    </span>
                   ))}
                 </div>
               </div>
 
-              {/* Action Button */}
-              <button
-                onClick={() => onOpenAudit(`Case Study: ${study.client} (${study.growthMultiplier})`)}
-                className="brutal-btn-primary w-full text-xs sm:text-sm py-3 justify-center gap-2 group"
-              >
-                <span>Request Similar Growth Sprint</span>
-                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </button>
+              {/* Card Footer Button */}
+              <div className="pt-4 border-t border-purple-100 flex items-center justify-between">
+                <div className="flex flex-wrap gap-1.5">
+                  {study.tags.slice(0, 2).map((t, idx) => (
+                    <span key={idx} className="text-[10px] font-mono text-ink-muted bg-slate-50 px-2 py-0.5 rounded border border-slate-200">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => onOpenAudit(`Case Study: ${study.client}`)}
+                  className="font-mono text-xs font-bold text-violet-bright flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                >
+                  <span>Request Similar Sprint</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
             </div>
           ))}
         </div>
